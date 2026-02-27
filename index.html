@@ -36,7 +36,6 @@
             padding: 20px;
         }
         
-        /* Навигация */
         .nav-bar {
             background: linear-gradient(135deg, #5c6bc0, #3949ab);
             border-radius: 50px;
@@ -72,7 +71,6 @@
             background: rgba(255,255,255,0.3);
         }
         
-        /* Карточки */
         .card {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
@@ -88,7 +86,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        /* Кнопки */
         .btn {
             display: inline-block;
             padding: 12px 24px;
@@ -128,7 +125,6 @@
             cursor: not-allowed;
         }
         
-        /* Прогресс */
         .progress {
             background: #e0e0e0;
             height: 10px;
@@ -145,7 +141,6 @@
             transition: width 0.3s;
         }
         
-        /* Заголовок задания */
         .task-header {
             display: flex;
             justify-content: space-between;
@@ -171,7 +166,6 @@
             font-weight: bold;
         }
         
-        /* Текст задания */
         .task-question {
             font-size: 1.2em;
             line-height: 1.6;
@@ -182,7 +176,6 @@
             border-left: 5px solid #5c6bc0;
         }
         
-        /* Изображения */
         .image-container {
             text-align: center;
             margin: 30px 0;
@@ -206,7 +199,6 @@
             font-weight: bold;
         }
         
-        /* Таблицы */
         .table-container {
             overflow-x: auto;
             margin: 30px 0;
@@ -234,8 +226,22 @@
             border: 1px solid #ddd;
         }
         
-        /* Поля ввода */
-        .solution-area, .answer-area {
+        .subtask {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9ff;
+            border-radius: 15px;
+            border-left: 4px solid #5c6bc0;
+        }
+        
+        .subtask-question {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .solution-area {
             margin: 20px 0;
         }
         
@@ -264,6 +270,10 @@
             box-shadow: 0 0 0 3px rgba(92, 107, 192, 0.1);
         }
         
+        .answer-area {
+            margin: 20px 0;
+        }
+        
         .answer-input {
             width: 250px;
             padding: 12px 15px;
@@ -280,7 +290,6 @@
             box-shadow: 0 0 0 3px rgba(92, 107, 192, 0.1);
         }
         
-        /* Сетка для рисования */
         .drawing-grid {
             display: grid;
             grid-template-columns: repeat(20, 25px);
@@ -310,7 +319,6 @@
             background: #e8eaf6;
         }
         
-        /* Сетка вариантов */
         .variants-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -342,7 +350,6 @@
             padding: 20px;
         }
         
-        /* Результаты */
         .score-number {
             font-size: 5em;
             font-weight: bold;
@@ -383,7 +390,6 @@
         .correct { color: #4CAF50; font-weight: bold; }
         .incorrect { color: #f44336; font-weight: bold; }
         
-        /* Навигация */
         .navigation {
             display: flex;
             gap: 10px;
@@ -444,7 +450,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- Навигация -->
         <div class="nav-bar">
             <div class="nav-brand" onclick="showPage('main')">📚 ВПР 2025</div>
             <div class="nav-links">
@@ -453,9 +458,7 @@
             </div>
         </div>
 
-        <!-- Контейнер для страниц -->
         <div id="main-page" style="display: block;">
-            <!-- Главная страница -->
             <div class="card" style="text-align: center; padding: 40px 20px;">
                 <h1 style="font-size: 2.5em; margin-bottom: 20px; color: #3949ab;">
                     📚 Подготовка к ВПР 2025
@@ -492,44 +495,32 @@
         </div>
 
         <div id="variants-page" style="display: none;">
-            <!-- Список вариантов -->
             <div class="card">
                 <div style="text-align: center; margin-bottom: 30px;">
                     <h1 style="color: #f57c00; font-size: 2.5em; margin-bottom: 10px;">🦉 4 класс</h1>
                     <p style="color: #666; font-size: 1.2em;">Подготовка к ВПР по математике</p>
                 </div>
                 
-                <div class="variants-grid" id="variants-grid">
-                    <!-- Варианты будут добавлены через JavaScript -->
-                </div>
+                <div class="variants-grid" id="variants-grid"></div>
             </div>
         </div>
 
         <div id="variant-info-page" style="display: none;">
-            <!-- Информация о варианте -->
-            <div class="card" style="max-width: 700px; margin: 0 auto;" id="variant-info-card">
-                <!-- Заполняется через JavaScript -->
-            </div>
+            <div class="card" style="max-width: 700px; margin: 0 auto;" id="variant-info-card"></div>
         </div>
 
         <div id="task-page" style="display: none;">
-            <!-- Страница с заданием -->
-            <div class="card" id="task-card">
-                <!-- Заполняется через JavaScript -->
-            </div>
+            <div class="card" id="task-card"></div>
         </div>
 
         <div id="result-page" style="display: none;">
-            <!-- Страница с результатами -->
-            <div class="card" id="result-card">
-                <!-- Заполняется через JavaScript -->
-            </div>
+            <div class="card" id="result-card"></div>
         </div>
     </div>
 
     <script>
         // ============================================
-        // ДАННЫЕ ВСЕХ ВАРИАНТОВ
+        // ДАННЫЕ ВСЕХ ВАРИАНТОВ (ИСПРАВЛЕННЫЕ ПО PDF)
         // ============================================
         const variants = {
             "1": {
@@ -537,8 +528,8 @@
                 "year": 2025,
                 "description": "Тренировочный вариант ВПР 2025",
                 "image_files": {
-                    "5": "variant1_figura.png",
-                    "10": "variant1_mirror.png"
+                    "5": "variant1_5.png",
+                    "10": "variant1_10.png"
                 },
                 "tasks": [
                     {
@@ -572,11 +563,23 @@
                     },
                     {
                         "id": 5,
-                        "question": "На клетчатом поле со стороной клетки 1 см изображена фигура. Найди периметр этой фигуры.",
+                        "question": "На клетчатом поле со стороной клетки 1 см изображена фигура.",
                         "has_image": true,
-                        "answer": "18",
-                        "type": "number",
-                        "points": 1
+                        "subtasks": [
+                            {
+                                "id": "5_1",
+                                "question": "1) Найди периметр этой фигуры.",
+                                "answer": "18",
+                                "type": "number",
+                                "points": 1
+                            },
+                            {
+                                "id": "5_2",
+                                "question": "2) На клетчатом поле рядом с фигурой нарисуй прямоугольник, площадь которого равна площади данной фигуры.",
+                                "type": "draw",
+                                "points": 1
+                            }
+                        ]
                     },
                     {
                         "id": 6,
@@ -593,14 +596,14 @@
                         "subtasks": [
                             {
                                 "id": "6_1",
-                                "question": "Сколько стиральных машин починил мастер Володин?",
+                                "question": "1) Сколько стиральных машин починил мастер Володин?",
                                 "answer": "5",
                                 "type": "number",
                                 "points": 1
                             },
                             {
                                 "id": "6_2",
-                                "question": "Кто из мастеров починил меньше всего бытовой техники?",
+                                "question": "2) Кто из мастеров починил меньше всего бытовой техники?",
                                 "answer": "Шульгин",
                                 "type": "text",
                                 "points": 1
@@ -627,14 +630,14 @@
                         "subtasks": [
                             {
                                 "id": "9_1",
-                                "question": "Какой экзамен был у Лены первым?",
+                                "question": "1) Какой экзамен был у Лены первым?",
                                 "answer": "история",
                                 "type": "text",
                                 "points": 1
                             },
                             {
                                 "id": "9_2",
-                                "question": "Какой экзамен Лена сдавала сразу перед экзаменом по английскому языку?",
+                                "question": "2) Какой экзамен Лена сдавала сразу перед экзаменом по английскому языку?",
                                 "answer": "литература",
                                 "type": "text",
                                 "points": 1
@@ -664,10 +667,9 @@
                 "year": 2025,
                 "description": "Тренировочный вариант ВПР 2025",
                 "image_files": {
-                    "3": "variant2_zadacha3.png",
-                    "5": "variant2_figura.png",
-                    "6": "variant2_figura.png",
-                    "13": "variant2_mirror.png"
+                    "3": "variant2_3.png",
+                    "5": "variant2_5.png",
+                    "13": "variant2_13.png"
                 },
                 "tasks": [
                     {
@@ -702,18 +704,23 @@
                     },
                     {
                         "id": 5,
-                        "question": "На клетчатом поле со стороной клетки 1 см изображена фигура. Найди периметр этой фигуры.",
+                        "question": "На клетчатом поле со стороной клетки 1 см изображена фигура.",
                         "has_image": true,
-                        "answer": "20",
-                        "type": "number",
-                        "points": 1
-                    },
-                    {
-                        "id": 6,
-                        "question": "На клетчатом поле рядом с фигурой нарисуй квадрат, периметр которого равен периметру данной фигуры.",
-                        "has_image": true,
-                        "type": "draw",
-                        "points": 1
+                        "subtasks": [
+                            {
+                                "id": "5_1",
+                                "question": "1) Найди периметр этой фигуры.",
+                                "answer": "20",
+                                "type": "number",
+                                "points": 1
+                            },
+                            {
+                                "id": "5_2",
+                                "question": "2) На клетчатом поле рядом с фигурой нарисуй квадрат, периметр которого равен периметру данной фигуры.",
+                                "type": "draw",
+                                "points": 1
+                            }
+                        ]
                     },
                     {
                         "id": 7,
@@ -789,9 +796,10 @@
                 "year": 2025,
                 "description": "Тренировочный вариант ВПР 2025",
                 "image_files": {
-                    "3": "variant3_zadacha3.png",
-                    "5": "variant3_figura.png",
-                    "13": "variant3_mirror.png"
+                    "3": "variant3_3.png",
+                    "4": "variant3_4.png",
+                    "5": "variant3_5.png",
+                    "13": "variant3_13.png"
                 },
                 "tasks": [
                     {
@@ -827,18 +835,23 @@
                     },
                     {
                         "id": 5,
-                        "question": "На клетчатом поле со стороной квадратной клетки 1 см изображена фигура. Найди периметр этой фигуры.",
+                        "question": "На клетчатом поле со стороной квадратной клетки 1 см изображена фигура.",
                         "has_image": true,
-                        "answer": "22",
-                        "type": "number",
-                        "points": 1
-                    },
-                    {
-                        "id": 6,
-                        "question": "Изобразите на рисунке по клеткам прямоугольник площадью 36 кв. см так, чтобы данная фигура целиком поместилась в этом прямоугольнике (не вылезала за границы).",
-                        "has_image": true,
-                        "type": "draw",
-                        "points": 1
+                        "subtasks": [
+                            {
+                                "id": "5_1",
+                                "question": "1) Найди периметр этой фигуры.",
+                                "answer": "22",
+                                "type": "number",
+                                "points": 1
+                            },
+                            {
+                                "id": "5_2",
+                                "question": "2) Изобразите на рисунке по клеткам прямоугольник площадью 36 кв. см так, чтобы данная фигура целиком поместилась в этом прямоугольнике.",
+                                "type": "draw",
+                                "points": 1
+                            }
+                        ]
                     },
                     {
                         "id": 7,
@@ -914,8 +927,9 @@
                 "year": 2025,
                 "description": "Тренировочный вариант ВПР 2025",
                 "image_files": {
-                    "5": "variant4_figura.png",
-                    "13": "variant4_mirror.png"
+                    "3": "variant4_3.png",
+                    "5": "variant4_5.png",
+                    "13": "variant4_13.png"
                 },
                 "tasks": [
                     {
@@ -949,18 +963,23 @@
                     },
                     {
                         "id": 5,
-                        "question": "На клетчатом поле со стороной клетки 1 см изображена фигура. Найди периметр этой фигуры.",
+                        "question": "На клетчатом поле со стороной клетки 1 см изображена фигура.",
                         "has_image": true,
-                        "answer": "16",
-                        "type": "number",
-                        "points": 1
-                    },
-                    {
-                        "id": 6,
-                        "question": "На клетчатом поле рядом с фигурой нарисуй прямоугольник, площадь которого равна площади данной фигуры.",
-                        "has_image": true,
-                        "type": "draw",
-                        "points": 1
+                        "subtasks": [
+                            {
+                                "id": "5_1",
+                                "question": "1) Найди периметр этой фигуры.",
+                                "answer": "16",
+                                "type": "number",
+                                "points": 1
+                            },
+                            {
+                                "id": "5_2",
+                                "question": "2) На клетчатом поле рядом с фигурой нарисуй прямоугольник, площадь которого равна площади данной фигуры.",
+                                "type": "draw",
+                                "points": 1
+                            }
+                        ]
                     },
                     {
                         "id": 7,
@@ -1050,14 +1069,12 @@
         // ФУНКЦИИ НАВИГАЦИИ
         // ============================================
         function showPage(page) {
-            // Скрываем все страницы
             document.getElementById('main-page').style.display = 'none';
             document.getElementById('variants-page').style.display = 'none';
             document.getElementById('variant-info-page').style.display = 'none';
             document.getElementById('task-page').style.display = 'none';
             document.getElementById('result-page').style.display = 'none';
             
-            // Обновляем активную навигацию
             document.getElementById('nav-main').classList.remove('active');
             document.getElementById('nav-variants').classList.remove('active');
             
@@ -1081,7 +1098,6 @@
             let html = '';
             
             for (const [varId, variant] of Object.entries(variants)) {
-                // Подсчет максимальных баллов
                 let maxPoints = 0;
                 for (const task of variant.tasks) {
                     if (task.subtasks) {
@@ -1093,7 +1109,6 @@
                     }
                 }
                 
-                // Определяем цвет варианта
                 let color1, color2;
                 if (varId === '1') {
                     color1 = '#f57c00';
@@ -1147,7 +1162,6 @@
             
             appState.currentVariant = variantId;
             
-            // Подсчет максимальных баллов
             let maxPoints = 0;
             for (const task of variant.tasks) {
                 if (task.subtasks) {
@@ -1199,7 +1213,6 @@
             
             document.getElementById('variant-info-card').innerHTML = html;
             
-            // Переключаемся на страницу информации
             document.getElementById('main-page').style.display = 'none';
             document.getElementById('variants-page').style.display = 'none';
             document.getElementById('variant-info-page').style.display = 'block';
@@ -1233,7 +1246,6 @@
             const taskNumber = appState.currentTaskIndex + 1;
             const total = variant.tasks.length;
             
-            // Определяем изображение для задания
             let taskImage = null;
             if (task.has_image && variant.image_files) {
                 const taskId = String(task.id).split('_')[0];
@@ -1246,7 +1258,6 @@
                     <span class="task-points">
             `;
             
-            // Подсчет баллов
             if (task.subtasks) {
                 let subtaskPoints = 0;
                 for (const subtask of task.subtasks) {
@@ -1259,20 +1270,24 @@
             
             html += `</span></div>`;
             
-            // Вопрос
             html += `<div class="task-question">${task.question}</div>`;
             
-            // Изображение
             if (taskImage) {
+                // Убедимся, что путь правильный
+                const imagePath = `images/${taskImage}`;
+                console.log("Загружаю изображение:", imagePath); // для отладки
+    
                 html += `
                     <div class="image-container">
-                        <img src="images/${taskImage}" alt="Рисунок к заданию" class="vpr-image">
-                        ${task.id == 5 || task.id == 6 ? '<div class="image-caption">Сторона клетки 1 см</div>' : ''}
+                        <img src="${imagePath}" 
+                             alt="Рисунок к заданию" 
+                             class="vpr-image"
+                             onerror="console.error('Ошибка загрузки:', this.src)">
+                        ${task.id == 5 ? '<div class="image-caption">Сторона клетки 1 см</div>' : ''}
                     </div>
                 `;
             }
             
-            // Таблица
             if (task.table) {
                 html += `<div class="table-container"><table><thead><tr>`;
                 for (const header of task.table.headers) {
@@ -1289,19 +1304,16 @@
                 html += `</tbody></table></div>`;
             }
             
-            // Форма для ответов
             html += `<div class="task-form">`;
             
             if (task.subtasks) {
-                // Подзадания
                 for (const subtask of task.subtasks) {
                     html += `
-                        <div class="subtask" style="margin: 30px 0; padding: 20px; background: #f8f9ff; border-radius: 15px;">
+                        <div class="subtask">
                             <div style="font-weight: bold; margin-bottom: 15px;">${subtask.question}</div>
                     `;
                     
                     if (subtask.type === 'draw') {
-                        // Поле для рисования
                         const drawingKey = `${task.id}_${subtask.id}`;
                         const savedDrawing = appState.drawings[drawingKey] || '';
                         
@@ -1325,7 +1337,6 @@
                             </div>
                         `;
                     } else {
-                        // Обычные поля
                         const answerKey = `${task.id}_${subtask.id}`;
                         const savedAnswer = appState.userAnswers[answerKey] || '';
                         const savedSolution = appState.userSolutions[answerKey] || '';
@@ -1345,7 +1356,6 @@
                     html += `</div>`;
                 }
             } else if (task.type === 'draw') {
-                // Задание на рисование
                 const drawingKey = task.id;
                 const savedDrawing = appState.drawings[drawingKey] || '';
                 
@@ -1369,7 +1379,6 @@
                     </div>
                 `;
             } else {
-                // Обычное задание
                 const answerKey = task.id;
                 const savedAnswer = appState.userAnswers[answerKey] || '';
                 const savedSolution = appState.userSolutions[answerKey] || '';
@@ -1394,7 +1403,6 @@
                 <div class="save-notice" id="saveNotice">Ответы сохранены!</div>
             `;
             
-            // Навигация
             html += `
                 <div class="navigation">
                     <button class="btn btn-secondary" onclick="prevTask()" ${taskNumber === 1 ? 'disabled' : ''}>← Предыдущее</button>
@@ -1410,7 +1418,6 @@
             
             document.getElementById('task-card').innerHTML = html;
             
-            // Переключаемся на страницу задания
             document.getElementById('main-page').style.display = 'none';
             document.getElementById('variants-page').style.display = 'none';
             document.getElementById('variant-info-page').style.display = 'none';
@@ -1426,7 +1433,6 @@
         function toggleDrawingCell(drawingKey, row, col, element) {
             element.classList.toggle('filled');
             
-            // Собираем все закрашенные клетки
             const grid = document.getElementById(`drawing-grid-${drawingKey}`);
             const cells = grid.querySelectorAll('.grid-cell');
             const filledCells = [];
@@ -1437,7 +1443,6 @@
                 }
             });
             
-            // Сохраняем
             document.getElementById(`drawing-${drawingKey}`).value = filledCells.join(',');
             appState.drawings[drawingKey] = filledCells.join(',');
         }
@@ -1464,11 +1469,9 @@
                         appState.userSolutions[solutionKey] = solutionInput.value;
                     }
                     
-                    // Проверяем правильность
                     if (answerInput && subtask.answer) {
                         const isCorrect = checkAnswer(subtask, answerInput.value);
                         
-                        // Обновляем или добавляем результат
                         const resultIndex = appState.results.findIndex(r => r.taskId === answerKey);
                         const result = {
                             taskId: answerKey,
@@ -1500,7 +1503,6 @@
                     appState.userSolutions[solutionKey] = solutionInput.value;
                 }
                 
-                // Проверяем правильность
                 if (answerInput && task.answer) {
                     const isCorrect = checkAnswer(task, answerInput.value);
                     
@@ -1522,7 +1524,6 @@
                 }
             }
             
-            // Показываем уведомление
             const notice = document.getElementById('saveNotice');
             notice.style.display = 'block';
             setTimeout(() => {
@@ -1572,16 +1573,13 @@
         // ЗАВЕРШЕНИЕ И ПОКАЗ РЕЗУЛЬТАТОВ
         // ============================================
         function finishVariant() {
-            // Сохраняем текущее задание
             saveCurrentTask();
             
             const variant = variants[appState.currentVariant];
             
-            // Подсчет баллов
             let totalPoints = 0;
             let maxPoints = 0;
             
-            // Считаем максимальные баллы
             for (const task of variant.tasks) {
                 if (task.subtasks) {
                     for (const subtask of task.subtasks) {
@@ -1592,14 +1590,12 @@
                 }
             }
             
-            // Считаем набранные баллы
             for (const result of appState.results) {
                 if (result.isCorrect) {
                     totalPoints += result.points;
                 }
             }
             
-            // Определяем оценку
             let grade, gradeText;
             if (totalPoints >= 14) {
                 grade = 5;
@@ -1615,7 +1611,6 @@
                 gradeText = "Нужно еще позаниматься. Попробуй еще раз!";
             }
             
-            // Строим таблицу результатов
             let resultsHtml = '';
             for (const result of appState.results) {
                 resultsHtml += `
@@ -1692,7 +1687,6 @@
             
             document.getElementById('result-card').innerHTML = html;
             
-            // Переключаемся на страницу результатов
             document.getElementById('main-page').style.display = 'none';
             document.getElementById('variants-page').style.display = 'none';
             document.getElementById('variant-info-page').style.display = 'none';
