@@ -47,7 +47,73 @@
             color: white;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
-        
+        /* ===== ТАЙМЕР ===== */
+        .timer {
+            background: #fff3e0;
+            color: #f57c00;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2em;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .timer.warning {
+            background: #ffebee;
+            color: #f44336;
+            animation: pulse 1s infinite;
+        }
+
+        .timer.expired {
+            background: #f44336;
+            color: white;
+        }
+
+        @keyframes pulse {
+        0% { opacity: 1; }
+        50% { opacity: 0.7; }
+        100% { opacity: 1; }
+        }
+
+        .timer-controls {
+            display: flex;
+            gap: 10px;
+            margin-left: 15px;
+        }
+
+        .timer-btn {
+            background: white;
+            border: none;
+            border-radius: 20px;
+            padding: 4px 12px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
+
+        .timer-btn:hover {
+            background: #5c6bc0;
+            color: white;
+        }       
+
+        .time-settings {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-left: 15px;
+        }
+
+        .time-select {
+            padding: 5px 10px;
+            border-radius: 20px;
+            border: 2px solid #5c6bc0;
+            background: white;
+            font-weight: bold;
+        }
+
         .nav-brand {
             font-size: 1.3em;
             font-weight: bold;
@@ -452,9 +518,32 @@
     <div class="container">
         <div class="nav-bar">
             <div class="nav-brand" onclick="showPage('main')">📚 ВПР 2025</div>
+    
+            <!-- ТАЙМЕР (будет виден только во время выполнения варианта) -->
+            <div id="timer-container" style="display: none;">
+                <div class="timer" id="timer">
+                    <span>⏱️</span>
+                    <span id="timer-display">45:00</span>
+                    <div class="timer-controls">
+                        <button class="timer-btn" onclick="pauseTimer()" id="pause-btn">⏸️</button>
+                        <button class="timer-btn" onclick="resetTimer()" id="reset-btn">↺</button>
+                    </div>
+                    <div class="time-settings" id="time-settings">
+                        <select class="time-select" id="timer-select" onchange="changeTimerTime(this.value)">
+                            <option value="45">45 мин (ВПР)</option>
+                            <option value="60">60 мин</option>
+                            <option value="30">30 мин</option>
+                            <option value="0">Без таймера</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+    
             <div class="nav-links">
                 <span onclick="showPage('main')" id="nav-main">Главная</span>
-                <span onclick="showPage('variants')" id="nav-variants">4 класс</span>
+                <span onclick="showPage('variants')" id="nav-variants">4 класс (ВПР)</span>
+                <span onclick="showPage('grade2')" id="nav-grade2">2 класс</span>
+                <span onclick="showPage('trainer')" id="nav-trainer">Тренажер</span>
             </div>
         </div>
 
@@ -1079,8 +1168,23 @@
             userAnswers: {},
             userSolutions: {},
             drawings: {},
-            results: []
-        };
+            results: [],
+    
+        // ===== НОВЫЕ ПОЛЯ ДЛЯ ТАЙМЕРА =====
+        timer: {
+            enabled: true,              // Таймер включен
+            minutes: 45,                 // Выбранное время
+            seconds: 45 * 60,            // Всего секунд
+            remaining: 45 * 60,          // Осталось секунд
+            isRunning: false,            // Идет ли отсчет
+            warningShown: false,          // Показано ли предупреждение
+            startTime: null,              // Время старта (timestamp)
+            pausedAt: null                 // Время паузы
+        }
+    };
+
+        // Временные точки для рисования
+        let tempPoints = {};
 
         // ============================================
         // ФУНКЦИИ НАВИГАЦИИ
@@ -1726,6 +1830,295 @@
         document.addEventListener('DOMContentLoaded', function() {
             showPage('main');
         });
+    
+        // ============================================
+        // ФУНКЦИИ ТАЙМЕРА (БЕЗ ЗВУКА)
+        // ============================================
+
+        // Переменная для интервала
+        let timerInterval = null;
+
+        function startTimer() {
+            console.log("Таймер запущен"); // Для отладки
+    
+            if (!appState.timer.enabled || appState.timer.minutes === 0) {
+                document.getElementById('timer-container').style.display = 'none';
+                return;
+            }
+    
+            // Загружаем сохраненное время
+            loadTimerState();
+    
+            // Показываем таймер
+            document.getElementById('timer-container').style.display = 'block';
+    
+            if (!appState.timer.isRunning && appState.timer.remaining > 0) {
+                appState.timer.isRunning = true;
+                appState.timer.startTime = Date.now() - ((appState.timer.minutes * 60 - appState.timer.remaining) * 1000);
+        
+            // Сохраняем в localStorage
+            saveTimerState();
+        
+            // Запускаем обновление каждую секунду
+            if (timerInterval) clearInterval(timerInterval);
+            timerInterval = setInterval(updateTimer, 1000);
+        
+            // Меняем иконку кнопки
+            const pauseBtn = document.getElementById('pause-btn');
+            if (pauseBtn) pauseBtn.innerHTML = '⏸️';
+            }
+        }    
+
+        function pauseTimer() {
+            if (!appState.timer.isRunning) {
+                // Возобновляем
+                appState.timer.isRunning = true;
+                if (appState.timer.pausedAt) {
+                // Корректируем startTime с учетом паузы
+                const pauseDuration = Date.now() - appState.timer.pausedAt;
+                appState.timer.startTime += pauseDuration;
+                appState.timer.pausedAt = null;
+                }
+        
+                document.getElementById('pause-btn').innerHTML = '⏸️';
+                timerInterval = setInterval(updateTimer, 1000);
+            } else {
+                // Пауза
+                appState.timer.isRunning = false;
+                appState.timer.pausedAt = Date.now();
+                clearInterval(timerInterval);
+        
+                document.getElementById('pause-btn').innerHTML = '▶️';
+            }
+    
+            saveTimerState();
+        }
+
+        function resetTimer() {
+            // Сбрасываем таймер на выбранное время
+            appState.timer.remaining = appState.timer.minutes * 60;
+            appState.timer.warningShown = false;
+            appState.timer.isRunning = false;
+            appState.timer.pausedAt = null;
+    
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+            }
+    
+            updateTimerDisplay();
+    
+            const pauseBtn = document.getElementById('pause-btn');
+            if (pauseBtn) pauseBtn.innerHTML = '⏸️';
+    
+            const timerEl = document.getElementById('timer');
+            if (timerEl) {
+            timerEl.classList.remove('warning', 'expired');
+            }
+    
+            // Очищаем сохраненное состояние
+            localStorage.removeItem('vpr_timer_state');
+        }
+
+        function changeTimerTime(minutes) {
+            minutes = parseInt(minutes);
+            appState.timer.minutes = minutes;
+            appState.timer.enabled = minutes > 0;
+    
+            if (minutes === 0) {
+                // Без таймера
+                document.getElementById('timer-container').style.display = 'none';
+                appState.timer.isRunning = false;
+                if (timerInterval) {
+                    clearInterval(timerInterval);
+                    timerInterval = null;
+                }
+            } else {
+                // С новым временем
+                appState.timer.remaining = minutes * 60;
+                updateTimerDisplay();
+                appState.timer.isRunning = false;
+                appState.timer.pausedAt = null;
+        
+                const pauseBtn = document.getElementById('pause-btn');
+                if (pauseBtn) pauseBtn.innerHTML = '⏸️';
+        
+                const timerEl = document.getElementById('timer');
+                if (timerEl) {
+                timerEl.classList.remove('warning', 'expired');
+                }
+        
+                // Показываем таймер
+                document.getElementById('timer-container').style.display = 'block';
+            }
+    
+            saveTimerState();
+        }
+
+        function updateTimer() {
+            if (!appState.timer.isRunning) return;
+    
+            const now = Date.now();
+            const elapsed = Math.floor((now - appState.timer.startTime) / 1000);
+            appState.timer.remaining = Math.max(0, appState.timer.minutes * 60 - elapsed);
+    
+            updateTimerDisplay();
+    
+            // Предупреждение за 5 минут (только визуальное, без звука)
+            if (appState.timer.remaining <= 300 && appState.timer.remaining > 0 && !appState.timer.warningShown) {
+                appState.timer.warningShown = true;
+                const timerEl = document.getElementById('timer');
+                if (timerEl) timerEl.classList.add('warning');
+            }
+    
+            // Время вышло
+            if (appState.timer.remaining <= 0) {
+                appState.timer.remaining = 0;
+                appState.timer.isRunning = false;
+        
+                if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+                }
+        
+                const timerEl = document.getElementById('timer');
+                if (timerEl) {
+                    timerEl.classList.remove('warning');
+                    timerEl.classList.add('expired');
+                }
+        
+                updateTimerDisplay();
+        
+                // Автоматически завершаем вариант, если он сейчас выполняется
+                if (appState.currentPage === 'task') {
+                    // Даем небольшую задержку, чтобы пользователь увидел, что время вышло
+                    setTimeout(() => {
+                        if (confirm('⏰ Время вышло! Хочешь посмотреть результат?')) {
+                            finishVariant();
+                        }
+                    }, 500);
+                }
+            }
+    
+            saveTimerState();
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(appState.timer.remaining / 60);
+            const seconds = appState.timer.remaining % 60;
+            const display = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    
+            const timerDisplay = document.getElementById('timer-display');
+            if (timerDisplay) timerDisplay.textContent = display;
+        }
+
+        function saveTimerState() {
+            try {
+                const state = {
+                    remaining: appState.timer.remaining,
+                    minutes: appState.timer.minutes,
+                    isRunning: appState.timer.isRunning,
+                    startTime: appState.timer.startTime,
+                    pausedAt: appState.timer.pausedAt,
+                    warningShown: appState.timer.warningShown,
+                    enabled: appState.timer.enabled
+                };
+                localStorage.setItem('vpr_timer_state', JSON.stringify(state));
+            } catch (e) {
+                console.log('Не удалось сохранить состояние таймера');
+            }
+        }
+
+        function loadTimerState() {
+            try {
+                const saved = localStorage.getItem('vpr_timer_state');
+                if (saved) {
+                    const state = JSON.parse(saved);
+                    appState.timer.remaining = state.remaining || appState.timer.minutes * 60;
+                    appState.timer.minutes = state.minutes || 45;
+                    appState.timer.isRunning = state.isRunning || false;
+                    appState.timer.startTime = state.startTime || null;
+                    appState.timer.pausedAt = state.pausedAt || null;
+                    appState.timer.warningShown = state.warningShown || false;
+                    appState.timer.enabled = state.enabled !== undefined ? state.enabled : true;
+            
+                    updateTimerDisplay();
+            
+                    // Восстанавливаем классы предупреждения
+                    const timerEl = document.getElementById('timer');
+                    if (timerEl) {
+                        if (appState.timer.warningShown && appState.timer.remaining > 0) {
+                            timerEl.classList.add('warning');
+                        }
+                        if (appState.timer.remaining <= 0) {
+                            timerEl.classList.add('expired');
+                        }
+                    }
+            
+                    // Если таймер должен работать, запускаем его
+                    if (appState.timer.isRunning && appState.timer.remaining > 0) {
+                        if (timerInterval) clearInterval(timerInterval);
+                        timerInterval = setInterval(updateTimer, 1000);
+                        document.getElementById('pause-btn').innerHTML = '⏸️';
+                    } else {
+                        document.getElementById('pause-btn').innerHTML = '⏸️';
+                    }
+                }
+            } catch (e) {
+                console.log('Не удалось загрузить состояние таймера');
+            }
+        }
+
+        // Функция для сброса таймера при начале нового варианта
+        function resetTimerForNewVariant() {
+            // Сбрасываем на 45 минут (по умолчанию для ВПР)
+            appState.timer.minutes = 45;
+            appState.timer.remaining = 45 * 60;
+            appState.timer.isRunning = false;
+            appState.timer.warningShown = false;
+            appState.timer.pausedAt = null;
+            appState.timer.enabled = true;
+    
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+            }
+    
+            updateTimerDisplay();
+    
+            const timerEl = document.getElementById('timer');
+            if (timerEl) {
+            timerEl.classList.remove('warning', 'expired');
+            }
+    
+            const pauseBtn = document.getElementById('pause-btn');
+            if (pauseBtn) pauseBtn.innerHTML = '⏸️';
+    
+            // Обновляем выпадающий список
+            const select = document.getElementById('timer-select');
+            if (select) select.value = '45';
+    
+            // Очищаем сохраненное состояние
+            localStorage.removeItem('vpr_timer_state');
+        }
+
+        // Обновляем функцию startVariant, чтобы таймер сбрасывался
+        function startVariant() {
+            appState.currentTaskIndex = 0;
+            appState.userAnswers = {};
+            appState.userSolutions = {};
+            appState.drawings = {};
+            appState.results = [];
+    
+            // Сбрасываем таймер
+            resetTimerForNewVariant();
+  
+            renderTask();
+    
+            // Показываем таймер и запускаем
+            document.getElementById('timer-container').style.display = 'block';
+            startTimer();
+        }
     </script>
 </body>
 </html>
