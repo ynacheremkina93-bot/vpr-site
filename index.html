@@ -36,6 +36,7 @@
             padding: 20px;
         }
         
+        /* Навигация */
         .nav-bar {
             background: linear-gradient(135deg, #5c6bc0, #3949ab);
             border-radius: 50px;
@@ -46,83 +47,24 @@
             align-items: center;
             color: white;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-        /* ===== ТАЙМЕР ===== */
-        .timer {
-            background: #fff3e0;
-            color: #f57c00;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.2em;
-            display: inline-flex;
-            align-items: center;
+            flex-wrap: wrap;
             gap: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-
-        .timer.warning {
-            background: #ffebee;
-            color: #f44336;
-            animation: pulse 1s infinite;
-        }
-
-        .timer.expired {
-            background: #f44336;
-            color: white;
-        }
-
-        @keyframes pulse {
-        0% { opacity: 1; }
-        50% { opacity: 0.7; }
-        100% { opacity: 1; }
-        }
-
-        .timer-controls {
-            display: flex;
-            gap: 10px;
-            margin-left: 15px;
-        }
-
-        .timer-btn {
-            background: white;
-            border: none;
-            border-radius: 20px;
-            padding: 4px 12px;
-            cursor: pointer;
-            font-size: 0.9em;
-            transition: all 0.3s;
-        }
-
-        .timer-btn:hover {
-            background: #5c6bc0;
-            color: white;
-        }       
-
-        .time-settings {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            margin-left: 15px;
-        }
-
-        .time-select {
-            padding: 5px 10px;
-            border-radius: 20px;
-            border: 2px solid #5c6bc0;
-            background: white;
-            font-weight: bold;
-        }
-
+        
         .nav-brand {
             font-size: 1.3em;
             font-weight: bold;
             cursor: pointer;
         }
         
+        .nav-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
         .nav-links span {
             color: white;
-            margin-left: 20px;
             padding: 5px 15px;
             border-radius: 25px;
             cursor: pointer;
@@ -137,6 +79,74 @@
             background: rgba(255,255,255,0.3);
         }
         
+        /* ===== ТАЙМЕР ===== */
+        .timer {
+            background: #fff3e0;
+            color: #f57c00;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2em;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .timer.warning {
+            background: #ffebee;
+            color: #f44336;
+            animation: pulse 1s infinite;
+        }
+        
+        .timer.expired {
+            background: #f44336;
+            color: white;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        
+        .timer-controls {
+            display: flex;
+            gap: 10px;
+            margin-left: 15px;
+        }
+        
+        .timer-btn {
+            background: white;
+            border: none;
+            border-radius: 20px;
+            padding: 4px 12px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
+        
+        .timer-btn:hover {
+            background: #5c6bc0;
+            color: white;
+        }
+        
+        .time-settings {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-left: 15px;
+        }
+        
+        .time-select {
+            padding: 5px 10px;
+            border-radius: 20px;
+            border: 2px solid #5c6bc0;
+            background: white;
+            font-weight: bold;
+        }
+        
+        /* Карточки */
         .card {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
@@ -152,6 +162,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
+        /* Кнопки */
         .btn {
             display: inline-block;
             padding: 12px 24px;
@@ -191,6 +202,7 @@
             cursor: not-allowed;
         }
         
+        /* Прогресс */
         .progress {
             background: #e0e0e0;
             height: 10px;
@@ -207,6 +219,7 @@
             transition: width 0.3s;
         }
         
+        /* Заголовок задания */
         .task-header {
             display: flex;
             justify-content: space-between;
@@ -214,6 +227,8 @@
             margin-bottom: 20px;
             padding-bottom: 15px;
             border-bottom: 2px dashed #5c6bc0;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         
         .task-number {
@@ -232,6 +247,7 @@
             font-weight: bold;
         }
         
+        /* Текст задания */
         .task-question {
             font-size: 1.2em;
             line-height: 1.6;
@@ -242,6 +258,7 @@
             border-left: 5px solid #5c6bc0;
         }
         
+        /* Изображения */
         .image-container {
             text-align: center;
             margin: 30px 0;
@@ -265,6 +282,7 @@
             font-weight: bold;
         }
         
+        /* Таблицы */
         .table-container {
             overflow-x: auto;
             margin: 30px 0;
@@ -292,22 +310,8 @@
             border: 1px solid #ddd;
         }
         
-        .subtask {
-            margin: 30px 0;
-            padding: 20px;
-            background: #f8f9ff;
-            border-radius: 15px;
-            border-left: 4px solid #5c6bc0;
-        }
-        
-        .subtask-question {
-            font-size: 1.1em;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #2c3e50;
-        }
-        
-        .solution-area {
+        /* Поля ввода */
+        .solution-area, .answer-area {
             margin: 20px 0;
         }
         
@@ -336,10 +340,6 @@
             box-shadow: 0 0 0 3px rgba(92, 107, 192, 0.1);
         }
         
-        .answer-area {
-            margin: 20px 0;
-        }
-        
         .answer-input {
             width: 250px;
             padding: 12px 15px;
@@ -356,35 +356,175 @@
             box-shadow: 0 0 0 3px rgba(92, 107, 192, 0.1);
         }
         
-        .drawing-grid {
+        /* Сетка с точками для рисования */
+        .dot-grid {
             display: grid;
-            grid-template-columns: repeat(20, 25px);
-            gap: 1px;
-            background: #eee;
+            grid-template-columns: repeat(21, 30px);
+            gap: 0;
+            background: white;
             padding: 15px;
             justify-content: center;
             margin: 20px 0;
             border-radius: 10px;
+            border: 2px solid #5c6bc0;
             overflow-x: auto;
         }
         
-        .grid-cell {
-            width: 25px;
-            height: 25px;
-            background: white;
-            border: 1px solid #ccc;
+        .dot-cell {
+            width: 30px;
+            height: 30px;
+            position: relative;
             cursor: pointer;
-            transition: background 0.2s;
         }
         
-        .grid-cell.filled {
+        .dot-cell::before {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #999;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.2s;
+        }
+        
+        .dot-cell::after {
+            content: '';
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            background: #ddd;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .grid-row {
+            position: relative;
+        }
+        
+        .grid-row::after {
+            content: '';
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            background: #ddd;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .dot-cell:hover::before {
             background: #5c6bc0;
+            width: 10px;
+            height: 10px;
         }
         
-        .grid-cell:hover {
+        .dot-cell.selected::before {
+            background: #f57c00;
+            width: 12px;
+            height: 12px;
+            box-shadow: 0 0 0 2px rgba(245, 124, 0, 0.3);
+        }
+        
+        .dot-cell.filled {
+            background-color: rgba(92, 107, 192, 0.2);
+        }
+        
+        .dot-cell.filled::before {
+            background: #5c6bc0;
+            width: 8px;
+            height: 8px;
+            z-index: 2;
+        }
+        
+        .draw-instruction {
             background: #e8eaf6;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            text-align: center;
+            color: #3949ab;
+            font-weight: bold;
         }
         
+        .draw-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+        
+        .draw-btn {
+            padding: 8px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .draw-btn-primary {
+            background: #5c6bc0;
+            color: white;
+        }
+        
+        .draw-btn-secondary {
+            background: #e8eaf6;
+            color: #3949ab;
+            border: 1px solid #5c6bc0;
+        }
+        
+        .draw-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        
+        /* Подзадания */
+        .subtask {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9ff;
+            border-radius: 15px;
+            border-left: 4px solid #5c6bc0;
+        }
+        
+        .subtask-question {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        /* Навигация по заданиям */
+        .navigation {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .save-notice {
+            background: #e8f5e8;
+            color: #2e7d32;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 10px 0;
+            display: none;
+        }
+        
+        /* Сетка вариантов */
         .variants-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -416,6 +556,7 @@
             padding: 20px;
         }
         
+        /* Результаты */
         .score-number {
             font-size: 5em;
             font-weight: bold;
@@ -440,6 +581,9 @@
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
         }
         
         .results-table th {
@@ -451,34 +595,11 @@
         .results-table td {
             padding: 12px;
             border-bottom: 1px solid #ddd;
+            text-align: center;
         }
         
         .correct { color: #4CAF50; font-weight: bold; }
         .incorrect { color: #f44336; font-weight: bold; }
-        
-        .navigation {
-            display: flex;
-            gap: 10px;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-        
-        .button-group {
-            display: flex;
-            gap: 15px;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-        
-        .save-notice {
-            background: #e8f5e8;
-            color: #2e7d32;
-            padding: 10px;
-            border-radius: 8px;
-            text-align: center;
-            margin: 10px 0;
-            display: none;
-        }
         
         @media (max-width: 600px) {
             .container {
@@ -487,21 +608,26 @@
             
             .nav-bar {
                 flex-direction: column;
-                gap: 10px;
                 text-align: center;
             }
             
-            .nav-links span {
-                margin: 0 10px;
+            .nav-links {
+                justify-content: center;
             }
             
-            .drawing-grid {
-                grid-template-columns: repeat(20, 18px);
+            .timer {
+                font-size: 1em;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             
-            .grid-cell {
-                width: 18px;
-                height: 18px;
+            .dot-grid {
+                grid-template-columns: repeat(21, 20px);
+            }
+            
+            .dot-cell {
+                width: 20px;
+                height: 20px;
             }
             
             .answer-input {
@@ -511,14 +637,19 @@
             .variants-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .score-number {
+                font-size: 3em;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Навигация -->
         <div class="nav-bar">
             <div class="nav-brand" onclick="showPage('main')">📚 ВПР 2025</div>
-    
+            
             <!-- ТАЙМЕР (будет виден только во время выполнения варианта) -->
             <div id="timer-container" style="display: none;">
                 <div class="timer" id="timer">
@@ -538,14 +669,15 @@
                     </div>
                 </div>
             </div>
-    
+            
             <div class="nav-links">
                 <span onclick="showPage('main')" id="nav-main">Главная</span>
                 <span onclick="showPage('variants')" id="nav-variants">4 класс (ВПР)</span>
-                <span onclick="showPage('grade2')" id="nav-grade2">2 класс</span>
+                <span onclick="showPage('trainer')" id="nav-trainer">🧮 Таблица умножения</span>
             </div>
         </div>
 
+        <!-- Главная страница -->
         <div id="main-page" style="display: block;">
             <div class="card" style="text-align: center; padding: 40px 20px;">
                 <h1 style="font-size: 2.5em; margin-bottom: 20px; color: #3949ab;">
@@ -559,6 +691,12 @@
                 <div style="max-width: 400px; margin: 0 auto;">
                     <button onclick="showPage('variants')" class="btn btn-primary" style="font-size: 1.5em; padding: 20px; width: 100%;">
                         🦉 Начать подготовку
+                    </button>
+                </div>
+                
+                <div style="margin-top: 30px;">
+                    <button onclick="showPage('trainer')" class="btn btn-secondary" style="font-size: 1.2em; padding: 15px 30px;">
+                        🧮 Тренажер таблицы умножения
                     </button>
                 </div>
                 
@@ -582,6 +720,7 @@
             </div>
         </div>
 
+        <!-- Страница со списком вариантов -->
         <div id="variants-page" style="display: none;">
             <div class="card">
                 <div style="text-align: center; margin-bottom: 30px;">
@@ -589,26 +728,44 @@
                     <p style="color: #666; font-size: 1.2em;">Подготовка к ВПР по математике</p>
                 </div>
                 
-                <div class="variants-grid" id="variants-grid"></div>
+                <div class="variants-grid" id="variants-grid">
+                    <!-- Варианты будут добавлены через JavaScript -->
+                </div>
             </div>
         </div>
 
+        <!-- Страница информации о варианте -->
         <div id="variant-info-page" style="display: none;">
-            <div class="card" style="max-width: 700px; margin: 0 auto;" id="variant-info-card"></div>
+            <div class="card" style="max-width: 700px; margin: 0 auto;" id="variant-info-card">
+                <!-- Заполняется через JavaScript -->
+            </div>
         </div>
 
+        <!-- Страница с заданием -->
         <div id="task-page" style="display: none;">
-            <div class="card" id="task-card"></div>
+            <div class="card" id="task-card">
+                <!-- Заполняется через JavaScript -->
+            </div>
         </div>
 
+        <!-- Страница с результатами -->
         <div id="result-page" style="display: none;">
-            <div class="card" id="result-card"></div>
+            <div class="card" id="result-card">
+                <!-- Заполняется через JavaScript -->
+            </div>
+        </div>
+
+        <!-- Страница тренажера таблицы умножения -->
+        <div id="trainer-page" style="display: none;">
+            <div class="card" id="trainer-card">
+                <!-- Заполняется через JavaScript -->
+            </div>
         </div>
     </div>
 
     <script>
         // ============================================
-        // ДАННЫЕ ВСЕХ ВАРИАНТОВ (ИСПРАВЛЕННЫЕ ПО PDF)
+        // ДАННЫЕ ВСЕХ ВАРИАНТОВ
         // ============================================
         const variants = {
             "1": {
@@ -617,7 +774,7 @@
                 "description": "Тренировочный вариант ВПР 2025",
                 "image_files": {
                     "5": "variant1_5.png",
-                    "10": "variant1_10.png"
+                    "10": "variant1_13.png"
                 },
                 "tasks": [
                     {
@@ -651,23 +808,11 @@
                     },
                     {
                         "id": 5,
-                        "question": "На клетчатом поле со стороной клетки 1 см изображена фигура.",
+                        "question": "На клетчатом поле со стороной клетки 1 см изображена фигура. Найди периметр этой фигуры.",
                         "has_image": true,
-                        "subtasks": [
-                            {
-                                "id": "5_1",
-                                "question": "1) Найди периметр этой фигуры.",
-                                "answer": "18",
-                                "type": "number",
-                                "points": 1
-                            },
-                            {
-                                "id": "5_2",
-                                "question": "2) На клетчатом поле рядом с фигурой нарисуй прямоугольник, площадь которого равна площади данной фигуры.",
-                                "type": "draw",
-                                "points": 1
-                            }
-                        ]
+                        "answer": "18",
+                        "type": "number",
+                        "points": 1
                     },
                     {
                         "id": 6,
@@ -684,14 +829,14 @@
                         "subtasks": [
                             {
                                 "id": "6_1",
-                                "question": "1) Сколько стиральных машин починил мастер Володин?",
+                                "question": "Сколько стиральных машин починил мастер Володин?",
                                 "answer": "5",
                                 "type": "number",
                                 "points": 1
                             },
                             {
                                 "id": "6_2",
-                                "question": "2) Кто из мастеров починил меньше всего бытовой техники?",
+                                "question": "Кто из мастеров починил меньше всего бытовой техники?",
                                 "answer": "Шульгин",
                                 "type": "text",
                                 "points": 1
@@ -718,14 +863,14 @@
                         "subtasks": [
                             {
                                 "id": "9_1",
-                                "question": "1) Какой экзамен был у Лены первым?",
+                                "question": "Какой экзамен был у Лены первым?",
                                 "answer": "история",
                                 "type": "text",
                                 "points": 1
                             },
                             {
                                 "id": "9_2",
-                                "question": "2) Какой экзамен Лена сдавала сразу перед экзаменом по английскому языку?",
+                                "question": "Какой экзамен Лена сдавала сразу перед экзаменом по английскому языку?",
                                 "answer": "литература",
                                 "type": "text",
                                 "points": 1
@@ -756,7 +901,7 @@
                 "description": "Тренировочный вариант ВПР 2025",
                 "image_files": {
                     "3": "variant2_3.png",
-                    "5": "variant2_5.png",      // Одно изображение для всего задания 5
+                    "5": "variant2_5.png",
                     "13": "variant2_13.png"
                 },
                 "tasks": [
@@ -796,21 +941,21 @@
                         "has_image": true,
                         "subtasks": [
                             {
-                                 "id": "5_1",
-                                 "question": "1) Найди периметр этой фигуры.",
-                                 "answer": "20",
-                                 "type": "number",
-                                 "points": 1
+                                "id": "5_1",
+                                "question": "1) Найди периметр этой фигуры.",
+                                "answer": "20",
+                                "type": "number",
+                                "points": 1
                             },
                             {
-                                 "id": "5_2",
-                                 "question": "2) На клетчатом поле рядом с фигурой нарисуй квадрат, периметр которого равен периметру данной фигуры.",
-                                 "type": "draw",
-                                 "points": 1
+                                "id": "5_2",
+                                "question": "2) На клетчатом поле рядом с фигурой нарисуй квадрат, периметр которого равен периметру данной фигуры.",
+                                "type": "draw",
+                                "points": 1
                             }
                         ]
                     },
-                    { 
+                    {
                         "id": 7,
                         "question": "Сколько берёз растёт в южной части парка?",
                         "table": {
@@ -826,7 +971,7 @@
                         "type": "number",
                         "points": 1
                     },
-                    {       
+                    {
                         "id": 8,
                         "question": "Каких из посчитанных Артёмом деревьев в парке меньше всего?",
                         "answer": "липы",
@@ -852,18 +997,18 @@
                         "question": "Ксюша собирала пазлы. Первый пазл состоял из 400 деталей, а в каждом следующем было на 100 деталей больше, чем в предыдущем. Всего Ксюша собрала шесть пазлов.",
                         "subtasks": [
                             {
-                                 "id": "11_1",
-                                 "question": "1) Сколько деталей было в пятом пазле?",
-                                 "answer": "800",
-                                 "type": "number",
-                                 "points": 1
+                                "id": "11_1",
+                                "question": "1) Сколько деталей было в пятом пазле?",
+                                "answer": "800",
+                                "type": "number",
+                                "points": 1
                             },
                             {
-                                 "id": "11_2",
-                                 "question": "2) Сколько всего деталей установила Ксюша?",
-                                 "answer": "3900",
-                                 "type": "number",
-                                 "points": 1
+                                "id": "11_2",
+                                "question": "2) Сколько всего деталей установила Ксюша?",
+                                "answer": "3900",
+                                "type": "number",
+                                "points": 1
                             }
                         ]
                     },
@@ -892,7 +1037,7 @@
                 "image_files": {
                     "3": "variant3_3.png",
                     "4": "variant3_4.png",
-                    "5": "variant3_5.png",      // Одно изображение для всего задания 5
+                    "5": "variant3_5.png",
                     "13": "variant3_13.png"
                 },
                 "tasks": [
@@ -933,17 +1078,17 @@
                         "has_image": true,
                         "subtasks": [
                             {
-                                 "id": "5_1",
-                                 "question": "1) Найди периметр этой фигуры.",
-                                 "answer": "22",
-                                 "type": "number",
-                                 "points": 1
+                                "id": "5_1",
+                                "question": "1) Найди периметр этой фигуры.",
+                                "answer": "22",
+                                "type": "number",
+                                "points": 1
                             },
                             {
-                                 "id": "5_2",
-                                 "question": "2) Изобразите на рисунке по клеткам прямоугольник площадью 36 кв. см так, чтобы данная фигура целиком поместилась в этом прямоугольнике.",
-                                 "type": "draw",
-                                 "points": 1
+                                "id": "5_2",
+                                "question": "2) Изобразите на рисунке по клеткам прямоугольник площадью 36 кв. см так, чтобы данная фигура целиком поместилась в этом прямоугольнике.",
+                                "type": "draw",
+                                "points": 1
                             }
                         ]
                     },
@@ -951,13 +1096,13 @@
                         "id": 7,
                         "question": "Сколько салфеток связала Дарья?",
                         "table": {
-                        "headers": ["Мастерица", "Воротник", "Салфетка", "Скатерть"],
-                        "rows": [
+                            "headers": ["Мастерица", "Воротник", "Салфетка", "Скатерть"],
+                            "rows": [
                                 ["Василиса", "4", "8", "2"],
                                 ["Дарья", "1", "8", "6"],
                                 ["Забава", "8", "12", "6"],
                                 ["Марфа", "6", "14", "1"]
-                            ] 
+                            ]
                         },
                         "answer": "8",
                         "type": "number",
@@ -989,18 +1134,18 @@
                         "question": "На уроке физкультуры 27 учеников выстроились в ряд, после чего учитель попросил рассчитаться на первый-второй-третий-четвёртый.",
                         "subtasks": [
                             {
-                                 "id": "11_1",
-                                 "question": "1) Что сказал ученик, стоящий девятнадцатым?",
-                                 "answer": "Третий",
-                                 "type": "text",
-                                 "points": 1
+                                "id": "11_1",
+                                "question": "1) Что сказал ученик, стоящий девятнадцатым?",
+                                "answer": "Третий",
+                                "type": "text",
+                                "points": 1
                             },
                             {
-                                 "id": "11_2",
-                                 "question": "2) Сколько учеников сказали «Четвёртый»?",
-                                 "answer": "6",
-                                 "type": "number",
-                                 "points": 1
+                                "id": "11_2",
+                                "question": "2) Сколько учеников сказали «Четвёртый»?",
+                                "answer": "6",
+                                "type": "number",
+                                "points": 1
                             }
                         ]
                     },
@@ -1028,7 +1173,7 @@
                 "description": "Тренировочный вариант ВПР 2025",
                 "image_files": {
                     "3": "variant4_3.png",
-                    "5": "variant4_5.png",      // Одно изображение для всего задания 5
+                    "5": "variant4_5.png",
                     "13": "variant4_13.png"
                 },
                 "tasks": [
@@ -1067,17 +1212,17 @@
                         "has_image": true,
                         "subtasks": [
                             {
-                                 "id": "5_1",
-                                 "question": "1) Найди периметр этой фигуры.",
-                                 "answer": "16",
-                                 "type": "number",
-                                 "points": 1
+                                "id": "5_1",
+                                "question": "1) Найди периметр этой фигуры.",
+                                "answer": "16",
+                                "type": "number",
+                                "points": 1
                             },
                             {
-                                 "id": "5_2",
-                                 "question": "2) На клетчатом поле рядом с фигурой нарисуй прямоугольник, площадь которого равна площади данной фигуры.",
-                                 "type": "draw",
-                                 "points": 1
+                                "id": "5_2",
+                                "question": "2) На клетчатом поле рядом с фигурой нарисуй прямоугольник, площадь которого равна площади данной фигуры.",
+                                "type": "draw",
+                                "points": 1
                             }
                         ]
                     },
@@ -1085,8 +1230,8 @@
                         "id": 7,
                         "question": "Сколько салфеток связала Дарья?",
                         "table": {
-                        "headers": ["Мастерица", "Воротник", "Салфетка", "Скатерть"],
-                        "rows": [
+                            "headers": ["Мастерица", "Воротник", "Салфетка", "Скатерть"],
+                            "rows": [
                                 ["Василиса", "4", "8", "2"],
                                 ["Дарья", "1", "8", "6"],
                                 ["Забава", "8", "12", "6"],
@@ -1123,18 +1268,18 @@
                         "question": "На компьютере установлен пароль, состоящий из семи цифр. Цифры идут в порядке убывания, т.е. каждая следующая цифра меньше предыдущей. Третья цифра в этом пароле — «5», шестая — «2».",
                         "subtasks": [
                             {
-                                 "id": "11_1",
-                                 "question": "1) Какая цифра в пароле пятая?",
-                                 "answer": "3",
-                                 "type": "number",
-                                 "points": 1
+                                "id": "11_1",
+                                "question": "1) Какая цифра в пароле пятая?",
+                                "answer": "3",
+                                "type": "number",
+                                "points": 1
                             },
                             {
-                                 "id": "11_2",
-                                 "question": "2) Запиши все цифры, которые могут стоять на первом месте в пароле. Цифры запиши в ответе друг за другом в порядке возрастания без разделительных знаков.",
-                                 "answer": "789",
-                                 "type": "text",
-                                 "points": 1
+                                "id": "11_2",
+                                "question": "2) Запиши все цифры, которые могут стоять на первом месте в пароле. Цифры запиши в ответе друг за другом в порядке возрастания без разделительных знаков.",
+                                "answer": "789",
+                                "type": "text",
+                                "points": 1
                             }
                         ]
                     },
@@ -1148,15 +1293,78 @@
                         "alternative_answers": ["К974ЕВ", "K974EB", "К974ЕВ53"]
                     },
                     {
-                       "id": 14,
-                       "question": "В школьном буфете одна чашка чая, два пирожка и три конфеты стоят 50 руб., а три чашки чая, два пирожка и одна конфета — 30 руб. Сколько рублей заплатит мальчик в школьном буфете за покупку одной чашки чая, одного пирожка и одной конфеты?",
-                       "answer": "20",
-                       "type": "number",
-                       "points": 2
+                        "id": 14,
+                        "question": "В школьном буфете одна чашка чая, два пирожка и три конфеты стоят 50 руб., а три чашки чая, два пирожка и одна конфета — 30 руб. Сколько рублей заплатит мальчик в школьном буфете за покупку одной чашки чая, одного пирожка и одной конфеты?",
+                        "answer": "20",
+                        "type": "number",
+                        "points": 2
                     }
                 ]
             }
-                    };
+        };
+
+        // ============================================
+        // ДАННЫЕ ДЛЯ ТРЕНАЖЕРА ТАБЛИЦЫ УМНОЖЕНИЯ
+        // ============================================
+
+        const multiplicationData = {
+            // Объекты для визуализации
+            objects: {
+                2: { emoji: "👟", name: "кеды" },
+                3: { emoji: "🐱", name: "кота" },
+                4: { emoji: "🚗", name: "колеса" },
+                5: { emoji: "✋", name: "пальца" },
+                6: { emoji: "🐞", name: "божьих коровок" },
+                7: { emoji: "🌈", name: "цветов радуги" },
+                8: { emoji: "🐙", name: "щупалец" },
+                9: { emoji: "🪐", name: "планет" }
+            },
+            
+            // Ассоциации для сложных примеров
+            associations: {
+                "6x6": { emoji: "🐌", text: "Шестью шесть — тридцать шесть, как улитка вьется" },
+                "6x8": { emoji: "🐛", text: "Шестью восемь — сорок восемь, как сороконожка" },
+                "7x8": { emoji: "🪪", text: "Семью восемь — пятьдесят шесть, как в паспорте серия" },
+                "5x5": { emoji: "💰", text: "Пятью пять — двадцать пять, можно денежку забрать" },
+                "4x4": { emoji: "🎂", text: "Четырежды четыре — шестнадцать, свечек на торте" },
+                "3x3": { emoji: "🐱", text: "Трижды три — девять, как у кота жизней" },
+                "2x2": { emoji: "🚗", text: "Дважды два — четыре, колеса у машины" },
+                "9x9": { emoji: "🧊", text: "Девятью девять — восемьдесят один, кубик Рубика" }
+            },
+            
+            // Примеры для каждой таблицы
+            examples: {
+                2: [2,3,4,5,6,7,8,9].map(i => ({ text: `2 × ${i}`, answer: 2*i })),
+                3: [2,3,4,5,6,7,8,9].map(i => ({ text: `3 × ${i}`, answer: 3*i })),
+                4: [2,3,4,5,6,7,8,9].map(i => ({ text: `4 × ${i}`, answer: 4*i })),
+                5: [2,3,4,5,6,7,8,9].map(i => ({ text: `5 × ${i}`, answer: 5*i })),
+                6: [2,3,4,5,6,7,8,9].map(i => ({ text: `6 × ${i}`, answer: 6*i })),
+                7: [2,3,4,5,6,7,8,9].map(i => ({ text: `7 × ${i}`, answer: 7*i })),
+                8: [2,3,4,5,6,7,8,9].map(i => ({ text: `8 × ${i}`, answer: 8*i })),
+                9: [2,3,4,5,6,7,8,9].map(i => ({ text: `9 × ${i}`, answer: 9*i }))
+            },
+            
+            // Квадраты (для уровня 4)
+            squares: [
+                { text: "3 × 3", answer: 9 },
+                { text: "4 × 4", answer: 16 },
+                { text: "5 × 5", answer: 25 },
+                { text: "6 × 6", answer: 36 },
+                { text: "7 × 7", answer: 49 },
+                { text: "8 × 8", answer: 64 },
+                { text: "9 × 9", answer: 81 }
+            ],
+            
+            // Сложные примеры (для уровня 5)
+            hard: [
+                { text: "6 × 7", answer: 42 },
+                { text: "6 × 8", answer: 48 },
+                { text: "7 × 8", answer: 56 },
+                { text: "7 × 9", answer: 63 },
+                { text: "8 × 9", answer: 72 }
+            ]
+        };
+
         // ============================================
         // СОСТОЯНИЕ ПРИЛОЖЕНИЯ
         // ============================================
@@ -1168,22 +1376,65 @@
             userSolutions: {},
             drawings: {},
             results: [],
-    
-        // ===== НОВЫЕ ПОЛЯ ДЛЯ ТАЙМЕРА =====
-        timer: {
-            enabled: true,              // Таймер включен
-            minutes: 45,                 // Выбранное время
-            seconds: 45 * 60,            // Всего секунд
-            remaining: 45 * 60,          // Осталось секунд
-            isRunning: false,            // Идет ли отсчет
-            warningShown: false,          // Показано ли предупреждение
-            startTime: null,              // Время старта (timestamp)
-            pausedAt: null                 // Время паузы
-        }
-    };
+            
+            // Поля для таймера
+            timer: {
+                enabled: true,
+                minutes: 45,
+                seconds: 45 * 60,
+                remaining: 45 * 60,
+                isRunning: false,
+                warningShown: false,
+                startTime: null,
+                pausedAt: null
+            },
+            
+            // Поля для тренажера таблицы умножения
+            trainer: {
+                currentTable: 2,
+                currentMode: 'watch',
+                currentExamples: [],
+                currentIndex: 0,
+                userAnswers: {},
+                gamePairs: [],
+                gameSelected: null,
+                gameMatches: [],
+                stats: loadTrainerStats()
+            }
+        };
 
         // Временные точки для рисования
         let tempPoints = {};
+
+        // Переменная для интервала таймера
+        let timerInterval = null;
+
+        // ============================================
+        // ЗАГРУЗКА СТАТИСТИКИ ТРЕНАЖЕРА ИЗ LOCALSTORAGE
+        // ============================================
+        function loadTrainerStats() {
+            const saved = localStorage.getItem('multiplication_stats');
+            if (saved) {
+                return JSON.parse(saved);
+            }
+            return {
+                medals: {
+                    2: false, 3: false, 4: false, 5: false,
+                    6: false, 7: false, 8: false, 9: false,
+                    squares: false, hard: false
+                },
+                progress: {
+                    2: { correct: 0, total: 0 },
+                    3: { correct: 0, total: 0 },
+                    4: { correct: 0, total: 0 },
+                    5: { correct: 0, total: 0 },
+                    6: { correct: 0, total: 0 },
+                    7: { correct: 0, total: 0 },
+                    8: { correct: 0, total: 0 },
+                    9: { correct: 0, total: 0 }
+                }
+            };
+        }
 
         // ============================================
         // ФУНКЦИИ НАВИГАЦИИ
@@ -1194,8 +1445,11 @@
             document.getElementById('variant-info-page').style.display = 'none';
             document.getElementById('task-page').style.display = 'none';
             document.getElementById('result-page').style.display = 'none';
+            document.getElementById('trainer-page').style.display = 'none';
+            
             document.getElementById('nav-main').classList.remove('active');
             document.getElementById('nav-variants').classList.remove('active');
+            document.getElementById('nav-trainer').classList.remove('active');
             
             if (page === 'main') {
                 document.getElementById('main-page').style.display = 'block';
@@ -1206,6 +1460,11 @@
                 document.getElementById('nav-variants').classList.add('active');
                 appState.currentPage = 'variants';
                 renderVariants();
+            } else if (page === 'trainer') {
+                document.getElementById('trainer-page').style.display = 'block';
+                document.getElementById('nav-trainer').classList.add('active');
+                appState.currentPage = 'trainer';
+                renderTrainer();
             }
         }
 
@@ -1217,6 +1476,7 @@
             let html = '';
             
             for (const [varId, variant] of Object.entries(variants)) {
+                // Подсчет максимальных баллов
                 let maxPoints = 0;
                 for (const task of variant.tasks) {
                     if (task.subtasks) {
@@ -1228,6 +1488,7 @@
                     }
                 }
                 
+                // Определяем цвет варианта
                 let color1, color2;
                 if (varId === '1') {
                     color1 = '#f57c00';
@@ -1281,6 +1542,7 @@
             
             appState.currentVariant = variantId;
             
+            // Подсчет максимальных баллов
             let maxPoints = 0;
             for (const task of variant.tasks) {
                 if (task.subtasks) {
@@ -1332,6 +1594,7 @@
             
             document.getElementById('variant-info-card').innerHTML = html;
             
+            // Переключаемся на страницу информации
             document.getElementById('main-page').style.display = 'none';
             document.getElementById('variants-page').style.display = 'none';
             document.getElementById('variant-info-page').style.display = 'block';
@@ -1351,11 +1614,784 @@
             appState.drawings = {};
             appState.results = [];
             
+            // Сбрасываем таймер
+            resetTimerForNewVariant();
+            
             renderTask();
+            
+            // Показываем таймер и запускаем
+            document.getElementById('timer-container').style.display = 'block';
+            startTimer();
         }
 
         // ============================================
-        // ОТРИСОВКА ЗАДАНИЯ
+        // ФУНКЦИИ ТАЙМЕРА
+        // ============================================
+        
+        function startTimer() {
+            if (!appState.timer.enabled || appState.timer.minutes === 0) {
+                document.getElementById('timer-container').style.display = 'none';
+                return;
+            }
+            
+            // Загружаем сохраненное время
+            loadTimerState();
+            
+            // Показываем таймер
+            document.getElementById('timer-container').style.display = 'block';
+            
+            if (!appState.timer.isRunning && appState.timer.remaining > 0) {
+                appState.timer.isRunning = true;
+                appState.timer.startTime = Date.now() - ((appState.timer.minutes * 60 - appState.timer.remaining) * 1000);
+                
+                // Сохраняем в localStorage
+                saveTimerState();
+                
+                // Запускаем обновление каждую секунду
+                if (timerInterval) clearInterval(timerInterval);
+                timerInterval = setInterval(updateTimer, 1000);
+                
+                // Меняем иконку кнопки
+                const pauseBtn = document.getElementById('pause-btn');
+                if (pauseBtn) pauseBtn.innerHTML = '⏸️';
+            }
+        }
+
+        function pauseTimer() {
+            if (!appState.timer.isRunning) {
+                // Возобновляем
+                appState.timer.isRunning = true;
+                if (appState.timer.pausedAt) {
+                    // Корректируем startTime с учетом паузы
+                    const pauseDuration = Date.now() - appState.timer.pausedAt;
+                    appState.timer.startTime += pauseDuration;
+                    appState.timer.pausedAt = null;
+                }
+                
+                document.getElementById('pause-btn').innerHTML = '⏸️';
+                timerInterval = setInterval(updateTimer, 1000);
+            } else {
+                // Пауза
+                appState.timer.isRunning = false;
+                appState.timer.pausedAt = Date.now();
+                clearInterval(timerInterval);
+                
+                document.getElementById('pause-btn').innerHTML = '▶️';
+            }
+            
+            saveTimerState();
+        }
+
+        function resetTimer() {
+            // Сбрасываем таймер на выбранное время
+            appState.timer.remaining = appState.timer.minutes * 60;
+            appState.timer.warningShown = false;
+            appState.timer.isRunning = false;
+            appState.timer.pausedAt = null;
+            
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+            }
+            
+            updateTimerDisplay();
+            
+            const pauseBtn = document.getElementById('pause-btn');
+            if (pauseBtn) pauseBtn.innerHTML = '⏸️';
+            
+            const timerEl = document.getElementById('timer');
+            if (timerEl) {
+                timerEl.classList.remove('warning', 'expired');
+            }
+            
+            // Очищаем сохраненное состояние
+            localStorage.removeItem('vpr_timer_state');
+        }
+
+        function changeTimerTime(minutes) {
+            minutes = parseInt(minutes);
+            appState.timer.minutes = minutes;
+            appState.timer.enabled = minutes > 0;
+            
+            if (minutes === 0) {
+                // Без таймера
+                document.getElementById('timer-container').style.display = 'none';
+                appState.timer.isRunning = false;
+                if (timerInterval) {
+                    clearInterval(timerInterval);
+                    timerInterval = null;
+                }
+            } else {
+                // С новым временем
+                appState.timer.remaining = minutes * 60;
+                updateTimerDisplay();
+                appState.timer.isRunning = false;
+                appState.timer.pausedAt = null;
+                
+                const pauseBtn = document.getElementById('pause-btn');
+                if (pauseBtn) pauseBtn.innerHTML = '⏸️';
+                
+                const timerEl = document.getElementById('timer');
+                if (timerEl) {
+                    timerEl.classList.remove('warning', 'expired');
+                }
+                
+                // Показываем таймер
+                document.getElementById('timer-container').style.display = 'block';
+            }
+            
+            saveTimerState();
+        }
+
+        function updateTimer() {
+            if (!appState.timer.isRunning) return;
+            
+            const now = Date.now();
+            const elapsed = Math.floor((now - appState.timer.startTime) / 1000);
+            appState.timer.remaining = Math.max(0, appState.timer.minutes * 60 - elapsed);
+            
+            updateTimerDisplay();
+            
+            // Предупреждение за 5 минут (только визуальное, без звука)
+            if (appState.timer.remaining <= 300 && appState.timer.remaining > 0 && !appState.timer.warningShown) {
+                appState.timer.warningShown = true;
+                const timerEl = document.getElementById('timer');
+                if (timerEl) timerEl.classList.add('warning');
+            }
+            
+            // Время вышло
+            if (appState.timer.remaining <= 0) {
+                appState.timer.remaining = 0;
+                appState.timer.isRunning = false;
+                
+                if (timerInterval) {
+                    clearInterval(timerInterval);
+                    timerInterval = null;
+                }
+                
+                const timerEl = document.getElementById('timer');
+                if (timerEl) {
+                    timerEl.classList.remove('warning');
+                    timerEl.classList.add('expired');
+                }
+                
+                updateTimerDisplay();
+                
+                // Автоматически завершаем вариант, если он сейчас выполняется
+                if (appState.currentPage === 'task') {
+                    // Даем небольшую задержку, чтобы пользователь увидел, что время вышло
+                    setTimeout(() => {
+                        if (confirm('⏰ Время вышло! Хочешь посмотреть результат?')) {
+                            finishVariant();
+                        }
+                    }, 500);
+                }
+            }
+            
+            saveTimerState();
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(appState.timer.remaining / 60);
+            const seconds = appState.timer.remaining % 60;
+            const display = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            const timerDisplay = document.getElementById('timer-display');
+            if (timerDisplay) timerDisplay.textContent = display;
+        }
+
+        function saveTimerState() {
+            try {
+                const state = {
+                    remaining: appState.timer.remaining,
+                    minutes: appState.timer.minutes,
+                    isRunning: appState.timer.isRunning,
+                    startTime: appState.timer.startTime,
+                    pausedAt: appState.timer.pausedAt,
+                    warningShown: appState.timer.warningShown,
+                    enabled: appState.timer.enabled
+                };
+                localStorage.setItem('vpr_timer_state', JSON.stringify(state));
+            } catch (e) {
+                console.log('Не удалось сохранить состояние таймера');
+            }
+        }
+
+        function loadTimerState() {
+            try {
+                const saved = localStorage.getItem('vpr_timer_state');
+                if (saved) {
+                    const state = JSON.parse(saved);
+                    appState.timer.remaining = state.remaining || appState.timer.minutes * 60;
+                    appState.timer.minutes = state.minutes || 45;
+                    appState.timer.isRunning = state.isRunning || false;
+                    appState.timer.startTime = state.startTime || null;
+                    appState.timer.pausedAt = state.pausedAt || null;
+                    appState.timer.warningShown = state.warningShown || false;
+                    appState.timer.enabled = state.enabled !== undefined ? state.enabled : true;
+                    
+                    updateTimerDisplay();
+                    
+                    // Восстанавливаем классы предупреждения
+                    const timerEl = document.getElementById('timer');
+                    if (timerEl) {
+                        if (appState.timer.warningShown && appState.timer.remaining > 0) {
+                            timerEl.classList.add('warning');
+                        }
+                        if (appState.timer.remaining <= 0) {
+                            timerEl.classList.add('expired');
+                        }
+                    }
+                    
+                    // Если таймер должен работать, запускаем его
+                    if (appState.timer.isRunning && appState.timer.remaining > 0) {
+                        if (timerInterval) clearInterval(timerInterval);
+                        timerInterval = setInterval(updateTimer, 1000);
+                        document.getElementById('pause-btn').innerHTML = '⏸️';
+                    } else {
+                        document.getElementById('pause-btn').innerHTML = '⏸️';
+                    }
+                }
+            } catch (e) {
+                console.log('Не удалось загрузить состояние таймера');
+            }
+        }
+
+        function resetTimerForNewVariant() {
+            // Сбрасываем на 45 минут (по умолчанию для ВПР)
+            appState.timer.minutes = 45;
+            appState.timer.remaining = 45 * 60;
+            appState.timer.isRunning = false;
+            appState.timer.warningShown = false;
+            appState.timer.pausedAt = null;
+            appState.timer.enabled = true;
+            
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+            }
+            
+            updateTimerDisplay();
+            
+            const timerEl = document.getElementById('timer');
+            if (timerEl) {
+                timerEl.classList.remove('warning', 'expired');
+            }
+            
+            const pauseBtn = document.getElementById('pause-btn');
+            if (pauseBtn) pauseBtn.innerHTML = '⏸️';
+            
+            // Обновляем выпадающий список
+            const select = document.getElementById('timer-select');
+            if (select) select.value = '45';
+            
+            // Очищаем сохраненное состояние
+            localStorage.removeItem('vpr_timer_state');
+        }
+
+        // ============================================
+        // ФУНКЦИИ ДЛЯ РИСОВАНИЯ ПО ТОЧКАМ
+        // ============================================
+        function selectDot(drawingKey, row, col) {
+            if (!tempPoints[drawingKey]) {
+                tempPoints[drawingKey] = [];
+            }
+            
+            const points = tempPoints[drawingKey];
+            
+            // Если уже выбрано 2 точки - очищаем и начинаем заново
+            if (points.length >= 2) {
+                points.length = 0;
+                // Снимаем выделение со всех точек
+                const grid = document.getElementById(`dot-grid-${drawingKey}`);
+                const cells = grid.querySelectorAll('.dot-cell');
+                cells.forEach(cell => cell.classList.remove('selected', 'filled'));
+            }
+            
+            // Добавляем новую точку
+            points.push({row, col});
+            
+            // Визуально выделяем точку
+            const grid = document.getElementById(`dot-grid-${drawingKey}`);
+            const index = row * 21 + col;
+            const cell = grid.children[index];
+            
+            if (points.length === 1) {
+                // Первая точка
+                cell.classList.add('selected');
+            } else if (points.length === 2) {
+                // Вторая точка - рисуем прямоугольник
+                drawRectangle(drawingKey, points[0], points[1]);
+            }
+        }
+
+        function drawRectangle(drawingKey, point1, point2) {
+            const grid = document.getElementById(`dot-grid-${drawingKey}`);
+            const cells = grid.querySelectorAll('.dot-cell');
+            
+            // Определяем границы прямоугольника
+            const minCol = Math.min(point1.col, point2.col);
+            const maxCol = Math.max(point1.col, point2.col);
+            const minRow = Math.min(point1.row, point2.row);
+            const maxRow = Math.max(point1.row, point2.row);
+            
+            // Закрашиваем все клетки внутри прямоугольника
+            for (let row = minRow; row < maxRow; row++) {
+                for (let col = minCol; col < maxCol; col++) {
+                    const index = row * 21 + col;
+                    if (cells[index]) {
+                        cells[index].classList.add('filled');
+                    }
+                }
+            }
+            
+            // Выделяем угловые точки
+            const index1 = point1.row * 21 + point1.col;
+            const index2 = point2.row * 21 + point2.col;
+            cells[index1].classList.add('selected');
+            cells[index2].classList.add('selected');
+            
+            // Сохраняем координаты
+            document.getElementById(`drawing-${drawingKey}`).value = 
+                `${point1.col},${point1.row},${point2.col},${point2.row}`;
+        }
+
+        function clearDrawing(drawingKey) {
+            // Очищаем временные точки
+            tempPoints[drawingKey] = [];
+            
+            // Очищаем сетку
+            const grid = document.getElementById(`dot-grid-${drawingKey}`);
+            const cells = grid.querySelectorAll('.dot-cell');
+            cells.forEach(cell => {
+                cell.classList.remove('selected', 'filled');
+            });
+            
+            // Очищаем сохраненные данные
+            document.getElementById(`drawing-${drawingKey}`).value = '';
+            appState.drawings[drawingKey] = '';
+        }
+
+        function confirmDrawing(drawingKey) {
+            const points = tempPoints[drawingKey] || [];
+            
+            if (points.length === 2) {
+                // Сохраняем рисунок
+                const drawingData = document.getElementById(`drawing-${drawingKey}`).value;
+                appState.drawings[drawingKey] = drawingData;
+                
+                // Показываем уведомление
+                const notice = document.getElementById('saveNotice');
+                notice.style.display = 'block';
+                setTimeout(() => {
+                    notice.style.display = 'none';
+                }, 2000);
+            } else {
+                alert('Выбери две точки: левый верхний и правый нижний угол прямоугольника!');
+            }
+        }
+
+        // ============================================
+        // ФУНКЦИИ ТРЕНАЖЕРА ТАБЛИЦЫ УМНОЖЕНИЯ
+        // ============================================
+
+        function renderTrainer() {
+            const mode = appState.trainer.currentMode;
+            let html = `
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <h1 style="color: #5c6bc0;">🧮 Таблица умножения</h1>
+                </div>
+                
+                <!-- Выбор таблицы -->
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 30px;">
+                    ${[2,3,4,5,6,7,8,9].map(num => `
+                        <button class="btn ${appState.trainer.currentTable === num ? 'btn-primary' : 'btn-secondary'}" 
+                                style="min-width: 50px;"
+                                onclick="selectTable(${num})">
+                            ${num}
+                        </button>
+                    `).join('')}
+                </div>
+                
+                <!-- Режимы -->
+                <div style="display: flex; gap: 10px; justify-content: center; margin-bottom: 30px;">
+                    <button class="btn ${mode === 'watch' ? 'btn-primary' : 'btn-secondary'}" 
+                            onclick="setTrainerMode('watch')">
+                        👀 СМОТРИМ
+                    </button>
+                    <button class="btn ${mode === 'play' ? 'btn-primary' : 'btn-secondary'}" 
+                            onclick="setTrainerMode('play')">
+                        🎮 ИГРАЕМ
+                    </button>
+                    <button class="btn ${mode === 'practice' ? 'btn-primary' : 'btn-secondary'}" 
+                            onclick="setTrainerMode('practice')">
+                        ✏️ ЗАКРЕПЛЯЕМ
+                    </button>
+                </div>
+            `;
+            
+            // Отрисовка выбранного режима
+            if (mode === 'watch') {
+                html += renderWatchMode();
+            } else if (mode === 'play') {
+                html += renderPlayMode();
+            } else if (mode === 'practice') {
+                html += renderPracticeMode();
+            }
+            
+            // Медали
+            html += renderMedals();
+            
+            document.getElementById('trainer-card').innerHTML = html;
+        }
+
+        function selectTable(num) {
+            appState.trainer.currentTable = num;
+            appState.trainer.currentExamples = shuffleArray(multiplicationData.examples[num]);
+            appState.trainer.currentIndex = 0;
+            appState.trainer.userAnswers = {};
+            appState.trainer.gamePairs = createGamePairs(num);
+            appState.trainer.gameSelected = null;
+            appState.trainer.gameMatches = [];
+            renderTrainer();
+        }
+
+        function setTrainerMode(mode) {
+            appState.trainer.currentMode = mode;
+            if (mode === 'play') {
+                appState.trainer.gamePairs = createGamePairs(appState.trainer.currentTable);
+                appState.trainer.gameSelected = null;
+                appState.trainer.gameMatches = [];
+            } else if (mode === 'practice') {
+                appState.trainer.currentExamples = shuffleArray(multiplicationData.examples[appState.trainer.currentTable]);
+                appState.trainer.currentIndex = 0;
+            }
+            renderTrainer();
+        }
+
+        function shuffleArray(array) {
+            return [...array].sort(() => Math.random() - 0.5);
+        }
+
+        function createGamePairs(table) {
+            const examples = multiplicationData.examples[table];
+            const questions = examples.map(e => ({ type: 'q', text: e.text, answer: e.answer, id: `q-${Math.random()}` }));
+            const answers = examples.map(e => ({ type: 'a', text: e.answer.toString(), answer: e.answer, id: `a-${Math.random()}` }));
+            return shuffleArray([...questions, ...answers]);
+        }
+
+        function renderWatchMode() {
+            const table = appState.trainer.currentTable;
+            const example = multiplicationData.examples[table][0]; // берем первый пример
+            const obj = multiplicationData.objects[table];
+            
+            let visualHtml = '';
+            for (let i = 0; i < example.answer / table; i++) {
+                visualHtml += '<div style="display: flex; gap: 5px; justify-content: center; margin: 5px;">';
+                for (let j = 0; j < table; j++) {
+                    visualHtml += `<span style="font-size: 2em;">${obj.emoji}</span>`;
+                }
+                visualHtml += '</div>';
+            }
+            
+            return `
+                <div class="card" style="text-align: center;">
+                    <h2 style="color: #f57c00;">Таблица на ${table}</h2>
+                    
+                    <div style="font-size: 3em; margin: 20px 0;">
+                        ${table} × ${example.answer / table} = ?
+                    </div>
+                    
+                    <div style="background: #f5f5f5; padding: 20px; border-radius: 15px;">
+                        ${visualHtml}
+                    </div>
+                    
+                    <div class="draw-buttons" style="margin: 20px 0;">
+                        <button class="draw-btn draw-btn-primary" onclick="showExplanation(${table}, ${example.answer / table})">
+                            🔍 ПОКАЗАТЬ
+                        </button>
+                    </div>
+                    
+                    <div id="explanation" style="font-size: 1.2em; min-height: 60px;"></div>
+                </div>
+            `;
+        }
+
+        function showExplanation(table, multiplier) {
+            const obj = multiplicationData.objects[table];
+            const explanation = `
+                <div style="background: #e8eaf6; padding: 15px; border-radius: 10px;">
+                    <p>👉 ${multiplier} ${obj.name} по ${table}</p>
+                    <p>👉 ${table} + ${table} + ${table} + ... (${multiplier} раз)</p>
+                    <p style="font-size: 1.5em; margin-top: 10px;">✨ ${table} × ${multiplier} = ${table * multiplier} ✨</p>
+                </div>
+            `;
+            document.getElementById('explanation').innerHTML = explanation;
+        }
+
+        function renderPlayMode() {
+            const pairs = appState.trainer.gamePairs;
+            const matches = appState.trainer.gameMatches;
+            
+            let gameHtml = '<div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 20px 0;">';
+            
+            pairs.forEach((item, index) => {
+                const isMatched = matches.includes(item.id);
+                const isSelected = appState.trainer.gameSelected === index;
+                
+                gameHtml += `
+                    <div class="card" style="padding: 15px; cursor: pointer; 
+                              background: ${isMatched ? '#e8f5e8' : isSelected ? '#fff3e0' : 'white'};
+                              border: 2px solid ${isMatched ? '#4CAF50' : isSelected ? '#f57c00' : '#5c6bc0'};
+                              opacity: ${isMatched ? 0.6 : 1};"
+                         onclick="selectGameItem(${index})">
+                        <div style="text-align: center; font-size: 1.3em;">
+                            ${item.text}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            gameHtml += '</div>';
+            
+            const progress = matches.length / 2;
+            const total = pairs.length / 2;
+            
+            gameHtml += `
+                <div style="margin: 20px 0;">
+                    <div class="progress">
+                        <div class="progress-bar" style="width: ${(progress/total)*100}%;"></div>
+                    </div>
+                    <p style="text-align: center;">Найдено: ${progress} из ${total}</p>
+                </div>
+                
+                <div class="draw-buttons" style="justify-content: center;">
+                    <button class="draw-btn draw-btn-primary" onclick="checkGameComplete()" 
+                            ${progress < total ? 'disabled' : ''}>
+                        ✅ ПРОВЕРИТЬ
+                    </button>
+                </div>
+            `;
+            
+            return gameHtml;
+        }
+
+        function selectGameItem(index) {
+            const pairs = appState.trainer.gamePairs;
+            const matches = appState.trainer.gameMatches;
+            
+            if (matches.includes(pairs[index].id)) return;
+            
+            if (appState.trainer.gameSelected === null) {
+                // Первый выбор
+                appState.trainer.gameSelected = index;
+            } else {
+                // Второй выбор
+                const first = pairs[appState.trainer.gameSelected];
+                const second = pairs[index];
+                
+                if (first.answer === second.answer && first.type !== second.type) {
+                    // Правильная пара
+                    matches.push(first.id, second.id);
+                }
+                
+                appState.trainer.gameSelected = null;
+            }
+            
+            renderTrainer();
+        }
+
+        function checkGameComplete() {
+            const total = appState.trainer.gamePairs.length / 2;
+            const found = appState.trainer.gameMatches.length / 2;
+            
+            if (found === total) {
+                alert('🎉 Молодец! Все пары найдены!');
+                // Обновляем статистику
+                updateTrainerStats(appState.trainer.currentTable, total, total);
+            } else {
+                alert(`Найдено ${found} из ${total}. Попробуй еще!`);
+            }
+        }
+
+        function renderPracticeMode() {
+            const examples = appState.trainer.currentExamples;
+            const index = appState.trainer.currentIndex;
+            const currentExample = examples[index];
+            const table = appState.trainer.currentTable;
+            const obj = multiplicationData.objects[table];
+            
+            // Визуализация
+            let visualHtml = '';
+            for (let i = 0; i < currentExample.answer / table; i++) {
+                visualHtml += '<div style="display: flex; gap: 3px; justify-content: center; margin: 3px;">';
+                for (let j = 0; j < table; j++) {
+                    visualHtml += `<span style="font-size: 1.5em;">${obj.emoji}</span>`;
+                }
+                visualHtml += '</div>';
+            }
+            
+            return `
+                <div class="card" style="text-align: center;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                        <span class="task-number">Пример ${index + 1} из ${examples.length}</span>
+                        <span class="task-points">${index + 1}/${examples.length}</span>
+                    </div>
+                    
+                    <div style="font-size: 3em; margin: 20px 0;">
+                        ${currentExample.text} = ?
+                    </div>
+                    
+                    <div style="background: #f5f5f5; padding: 15px; border-radius: 10px; margin: 20px 0;">
+                        ${visualHtml}
+                    </div>
+                    
+                    <div class="answer-area">
+                        <input type="number" class="answer-input" id="practice-answer" 
+                               value="${appState.trainer.userAnswers[index] || ''}" 
+                               placeholder="Введи ответ">
+                    </div>
+                    
+                    <div class="draw-buttons" style="justify-content: center; gap: 20px;">
+                        <button class="draw-btn draw-btn-primary" onclick="checkPracticeAnswer()">
+                            ✅ ПРОВЕРИТЬ
+                        </button>
+                        <button class="draw-btn draw-btn-secondary" onclick="nextPracticeExample()"
+                                ${index >= examples.length - 1 ? 'disabled' : ''}>
+                            ⏩ ДАЛЕЕ
+                        </button>
+                    </div>
+                    
+                    <div id="practice-feedback" style="margin-top: 20px; min-height: 40px;"></div>
+                    
+                    <div class="progress" style="margin-top: 20px;">
+                        <div class="progress-bar" style="width: ${((index + 1) / examples.length) * 100}%;"></div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function checkPracticeAnswer() {
+            const input = document.getElementById('practice-answer');
+            const answer = parseInt(input.value);
+            const index = appState.trainer.currentIndex;
+            const example = appState.trainer.currentExamples[index];
+            
+            if (isNaN(answer)) {
+                document.getElementById('practice-feedback').innerHTML = `
+                    <div style="color: #f57c00; background: #fff3e0; padding: 10px; border-radius: 8px;">
+                        Введи ответ!
+                    </div>
+                `;
+                return;
+            }
+            
+            const isCorrect = answer === example.answer;
+            appState.trainer.userAnswers[index] = answer;
+            
+            let feedback = '';
+            if (isCorrect) {
+                feedback = `
+                    <div style="color: #4CAF50; background: #e8f5e8; padding: 15px; border-radius: 8px;">
+                        ✅ Правильно! Молодец!
+                    </div>
+                `;
+            } else {
+                feedback = `
+                    <div style="color: #f44336; background: #ffebee; padding: 15px; border-radius: 8px;">
+                        ❌ Ошибка. Правильный ответ: ${example.answer}
+                    </div>
+                `;
+            }
+            
+            document.getElementById('practice-feedback').innerHTML = feedback;
+            
+            // Если это последний пример, показываем результат
+            if (index === appState.trainer.currentExamples.length - 1) {
+                setTimeout(() => showPracticeResult(), 1000);
+            }
+        }
+
+        function nextPracticeExample() {
+            const index = appState.trainer.currentIndex;
+            if (index < appState.trainer.currentExamples.length - 1) {
+                appState.trainer.currentIndex++;
+                renderTrainer();
+            }
+        }
+
+        function showPracticeResult() {
+            const answers = appState.trainer.userAnswers;
+            const examples = appState.trainer.currentExamples;
+            
+            let correct = 0;
+            examples.forEach((ex, i) => {
+                if (answers[i] === ex.answer) correct++;
+            });
+            
+            const result = `
+                <div class="card" style="text-align: center; margin-top: 20px;">
+                    <h3>📊 Результат</h3>
+                    <div style="font-size: 2em; color: #5c6bc0;">${correct} из ${examples.length}</div>
+                    <div style="margin: 15px 0;">
+                        ${correct === examples.length ? '🎉 Отлично! Можно переходить к следующей таблице!' : '💪 Попробуй еще раз!'}
+                    </div>
+                    <button class="btn btn-primary" onclick="resetPractice()">🔄 Еще раз</button>
+                </div>
+            `;
+            
+            // Обновляем статистику
+            updateTrainerStats(appState.trainer.currentTable, correct, examples.length);
+            
+            document.getElementById('practice-feedback').innerHTML = result;
+        }
+
+        function resetPractice() {
+            appState.trainer.currentExamples = shuffleArray(multiplicationData.examples[appState.trainer.currentTable]);
+            appState.trainer.currentIndex = 0;
+            appState.trainer.userAnswers = {};
+            renderTrainer();
+        }
+
+        function renderMedals() {
+            const stats = appState.trainer.stats;
+            
+            return `
+                <div class="card" style="margin-top: 30px;">
+                    <h3 style="text-align: center; margin-bottom: 20px;">🏆 Твои медали</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px;">
+                        ${[2,3,4,5,6,7,8,9].map(num => `
+                            <div style="text-align: center; padding: 10px; 
+                                       background: ${stats.medals[num] ? '#e8f5e8' : '#f5f5f5'}; 
+                                       border-radius: 10px;">
+                                <div style="font-size: 2em;">${stats.medals[num] ? '🏅' : '⚪'}</div>
+                                <div>×${num}</div>
+                                ${stats.medals[num] ? '<small style="color: #4CAF50;">пройдено</small>' : ''}
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function updateTrainerStats(table, correct, total) {
+            const stats = appState.trainer.stats;
+            
+            // Обновляем прогресс по таблице
+            stats.progress[table].correct += correct;
+            stats.progress[table].total += total;
+            
+            // Если все примеры решены правильно, выдаем медаль
+            if (correct === total && total >= 5) {
+                stats.medals[table] = true;
+            }
+            
+            // Сохраняем в localStorage
+            localStorage.setItem('multiplication_stats', JSON.stringify(stats));
+        }
+
+        // ============================================
+        // ФУНКЦИИ ДЛЯ ОТРИСОВКИ ЗАДАНИЙ
         // ============================================
         function renderTask() {
             const variant = variants[appState.currentVariant];
@@ -1365,6 +2401,7 @@
             const taskNumber = appState.currentTaskIndex + 1;
             const total = variant.tasks.length;
             
+            // Определяем изображение для задания
             let taskImage = null;
             if (task.has_image && variant.image_files) {
                 const taskId = String(task.id).split('_')[0];
@@ -1377,6 +2414,7 @@
                     <span class="task-points">
             `;
             
+            // Подсчет баллов
             if (task.subtasks) {
                 let subtaskPoints = 0;
                 for (const subtask of task.subtasks) {
@@ -1389,24 +2427,20 @@
             
             html += `</span></div>`;
             
+            // Вопрос
             html += `<div class="task-question">${task.question}</div>`;
             
+            // Изображение
             if (taskImage) {
-                // Убедимся, что путь правильный
-                const imagePath = `images/${taskImage}`;
-                console.log("Загружаю изображение:", imagePath); // для отладки
-    
                 html += `
                     <div class="image-container">
-                        <img src="${imagePath}" 
-                             alt="Рисунок к заданию" 
-                             class="vpr-image"
-                             onerror="console.error('Ошибка загрузки:', this.src)">
-                        ${task.id == 5 ? '<div class="image-caption">Сторона клетки 1 см</div>' : ''}
+                        <img src="images/${taskImage}" alt="Рисунок к заданию" class="vpr-image">
+                        ${task.id == 5 || task.id == 6 ? '<div class="image-caption">Сторона клетки 1 см</div>' : ''}
                     </div>
                 `;
             }
             
+            // Таблица
             if (task.table) {
                 html += `<div class="table-container"><table><thead><tr>`;
                 for (const header of task.table.headers) {
@@ -1423,39 +2457,62 @@
                 html += `</tbody></table></div>`;
             }
             
+            // Форма для ответов
             html += `<div class="task-form">`;
             
             if (task.subtasks) {
+                // Подзадания
                 for (const subtask of task.subtasks) {
                     html += `
                         <div class="subtask">
-                            <div style="font-weight: bold; margin-bottom: 15px;">${subtask.question}</div>
+                            <div class="subtask-question">${subtask.question}</div>
                     `;
                     
                     if (subtask.type === 'draw') {
+                        // Поле для рисования
                         const drawingKey = `${task.id}_${subtask.id}`;
-                        const savedDrawing = appState.drawings[drawingKey] || '';
+                        const savedPoints = appState.drawings[drawingKey] || '';
                         
                         html += `
                             <div style="margin: 20px 0;">
-                                <div class="solution-label">✏️ Нарисуй (кликай по клеткам):</div>
-                                <div class="drawing-grid" id="drawing-grid-${drawingKey}">
+                                <div class="draw-instruction">
+                                    ✏️ Кликни на две точки: сначала левый верхний угол, потом правый нижний
+                                </div>
+                                
+                                <div class="dot-grid" id="dot-grid-${drawingKey}">
                         `;
                         
-                        for (let row = 0; row < 15; row++) {
-                            for (let col = 0; col < 20; col++) {
-                                const cellIndex = row * 20 + col;
-                                const isFilled = savedDrawing.split(',').includes(String(cellIndex));
-                                html += `<div class="grid-cell ${isFilled ? 'filled' : ''}" onclick="toggleDrawingCell('${drawingKey}', ${row}, ${col}, this)"></div>`;
+                        for (let row = 0; row <= 14; row++) {
+                            html += `<div class="grid-row" style="display: contents;">`;
+                            for (let col = 0; col <= 20; col++) {
+                                const [x1, y1, x2, y2] = savedPoints.split(',').map(Number);
+                                const isSelected = (x1 === col && y1 === row) || (x2 === col && y2 === row);
+                                const isFilled = (x1 !== undefined && x2 !== undefined && 
+                                                 col >= Math.min(x1, x2) && col < Math.max(x1, x2) &&
+                                                 row >= Math.min(y1, y2) && row < Math.max(y1, y2));
+                                
+                                html += `<div class="dot-cell ${isSelected ? 'selected' : ''} ${isFilled ? 'filled' : ''}" 
+                                              onclick="selectDot('${drawingKey}', ${row}, ${col})"></div>`;
                             }
+                            html += `</div>`;
                         }
                         
                         html += `
                                 </div>
-                                <input type="hidden" id="drawing-${drawingKey}" value="${savedDrawing}">
+                                
+                                <div class="draw-buttons">
+                                    <button class="draw-btn draw-btn-secondary" onclick="clearDrawing('${drawingKey}')">
+                                        🧹 Очистить
+                                    </button>
+                                    <button class="draw-btn draw-btn-primary" onclick="confirmDrawing('${drawingKey}')">
+                                        ✅ Готово
+                                    </button>
+                                </div>
+                                <input type="hidden" id="drawing-${drawingKey}" value="${savedPoints}">
                             </div>
                         `;
                     } else {
+                        // Обычные поля для ввода
                         const answerKey = `${task.id}_${subtask.id}`;
                         const savedAnswer = appState.userAnswers[answerKey] || '';
                         const savedSolution = appState.userSolutions[answerKey] || '';
@@ -1475,29 +2532,50 @@
                     html += `</div>`;
                 }
             } else if (task.type === 'draw') {
+                // Задание на рисование без подпунктов
                 const drawingKey = task.id;
-                const savedDrawing = appState.drawings[drawingKey] || '';
+                const savedPoints = appState.drawings[drawingKey] || '';
                 
                 html += `
                     <div style="margin: 20px 0;">
-                        <div class="solution-label">✏️ Нарисуй (кликай по клеткам):</div>
-                        <div class="drawing-grid" id="drawing-grid-${drawingKey}">
+                        <div class="draw-instruction">
+                            ✏️ Кликни на две точки: сначала левый верхний угол, потом правый нижний
+                        </div>
+                        
+                        <div class="dot-grid" id="dot-grid-${drawingKey}">
                 `;
                 
-                for (let row = 0; row < 15; row++) {
-                    for (let col = 0; col < 20; col++) {
-                        const cellIndex = row * 20 + col;
-                        const isFilled = savedDrawing.split(',').includes(String(cellIndex));
-                        html += `<div class="grid-cell ${isFilled ? 'filled' : ''}" onclick="toggleDrawingCell('${drawingKey}', ${row}, ${col}, this)"></div>`;
+                for (let row = 0; row <= 14; row++) {
+                    html += `<div class="grid-row" style="display: contents;">`;
+                    for (let col = 0; col <= 20; col++) {
+                        const [x1, y1, x2, y2] = savedPoints.split(',').map(Number);
+                        const isSelected = (x1 === col && y1 === row) || (x2 === col && y2 === row);
+                        const isFilled = (x1 !== undefined && x2 !== undefined && 
+                                         col >= Math.min(x1, x2) && col < Math.max(x1, x2) &&
+                                         row >= Math.min(y1, y2) && row < Math.max(y1, y2));
+                        
+                        html += `<div class="dot-cell ${isSelected ? 'selected' : ''} ${isFilled ? 'filled' : ''}" 
+                                      onclick="selectDot('${drawingKey}', ${row}, ${col})"></div>`;
                     }
+                    html += `</div>`;
                 }
                 
                 html += `
                         </div>
-                        <input type="hidden" id="drawing-${drawingKey}" value="${savedDrawing}">
+                        
+                        <div class="draw-buttons">
+                            <button class="draw-btn draw-btn-secondary" onclick="clearDrawing('${drawingKey}')">
+                                🧹 Очистить
+                            </button>
+                            <button class="draw-btn draw-btn-primary" onclick="confirmDrawing('${drawingKey}')">
+                                ✅ Готово
+                            </button>
+                        </div>
+                        <input type="hidden" id="drawing-${drawingKey}" value="${savedPoints}">
                     </div>
                 `;
             } else {
+                // Обычное задание
                 const answerKey = task.id;
                 const savedAnswer = appState.userAnswers[answerKey] || '';
                 const savedSolution = appState.userSolutions[answerKey] || '';
@@ -1522,6 +2600,7 @@
                 <div class="save-notice" id="saveNotice">Ответы сохранены!</div>
             `;
             
+            // Навигация
             html += `
                 <div class="navigation">
                     <button class="btn btn-secondary" onclick="prevTask()" ${taskNumber === 1 ? 'disabled' : ''}>← Предыдущее</button>
@@ -1537,6 +2616,7 @@
             
             document.getElementById('task-card').innerHTML = html;
             
+            // Переключаемся на страницу задания
             document.getElementById('main-page').style.display = 'none';
             document.getElementById('variants-page').style.display = 'none';
             document.getElementById('variant-info-page').style.display = 'none';
@@ -1544,26 +2624,6 @@
             document.getElementById('result-page').style.display = 'none';
             
             appState.currentPage = 'task';
-        }
-
-        // ============================================
-        // ФУНКЦИИ ДЛЯ РИСОВАНИЯ
-        // ============================================
-        function toggleDrawingCell(drawingKey, row, col, element) {
-            element.classList.toggle('filled');
-            
-            const grid = document.getElementById(`drawing-grid-${drawingKey}`);
-            const cells = grid.querySelectorAll('.grid-cell');
-            const filledCells = [];
-            
-            cells.forEach((cell, index) => {
-                if (cell.classList.contains('filled')) {
-                    filledCells.push(index);
-                }
-            });
-            
-            document.getElementById(`drawing-${drawingKey}`).value = filledCells.join(',');
-            appState.drawings[drawingKey] = filledCells.join(',');
         }
 
         // ============================================
@@ -1575,6 +2635,11 @@
             
             if (task.subtasks) {
                 for (const subtask of task.subtasks) {
+                    if (subtask.type === 'draw') {
+                        // Для рисования данные уже сохраняются через confirmDrawing
+                        continue;
+                    }
+                    
                     const answerKey = `${task.id}_${subtask.id}`;
                     const solutionKey = `${task.id}_${subtask.id}`;
                     
@@ -1588,9 +2653,11 @@
                         appState.userSolutions[solutionKey] = solutionInput.value;
                     }
                     
+                    // Проверяем правильность
                     if (answerInput && subtask.answer) {
                         const isCorrect = checkAnswer(subtask, answerInput.value);
                         
+                        // Обновляем или добавляем результат
                         const resultIndex = appState.results.findIndex(r => r.taskId === answerKey);
                         const result = {
                             taskId: answerKey,
@@ -1608,7 +2675,7 @@
                         }
                     }
                 }
-            } else {
+            } else if (task.type !== 'draw') {
                 const answerKey = task.id;
                 const solutionKey = task.id;
                 
@@ -1622,6 +2689,7 @@
                     appState.userSolutions[solutionKey] = solutionInput.value;
                 }
                 
+                // Проверяем правильность
                 if (answerInput && task.answer) {
                     const isCorrect = checkAnswer(task, answerInput.value);
                     
@@ -1643,6 +2711,7 @@
                 }
             }
             
+            // Показываем уведомление
             const notice = document.getElementById('saveNotice');
             notice.style.display = 'block';
             setTimeout(() => {
@@ -1674,6 +2743,7 @@
         // НАВИГАЦИЯ ПО ЗАДАНИЯМ
         // ============================================
         function nextTask() {
+            saveCurrentTask();
             const variant = variants[appState.currentVariant];
             if (appState.currentTaskIndex < variant.tasks.length - 1) {
                 appState.currentTaskIndex++;
@@ -1682,6 +2752,7 @@
         }
         
         function prevTask() {
+            saveCurrentTask();
             if (appState.currentTaskIndex > 0) {
                 appState.currentTaskIndex--;
                 renderTask();
@@ -1692,13 +2763,16 @@
         // ЗАВЕРШЕНИЕ И ПОКАЗ РЕЗУЛЬТАТОВ
         // ============================================
         function finishVariant() {
+            // Сохраняем текущее задание
             saveCurrentTask();
             
             const variant = variants[appState.currentVariant];
             
+            // Подсчет баллов
             let totalPoints = 0;
             let maxPoints = 0;
             
+            // Считаем максимальные баллы
             for (const task of variant.tasks) {
                 if (task.subtasks) {
                     for (const subtask of task.subtasks) {
@@ -1709,12 +2783,14 @@
                 }
             }
             
+            // Считаем набранные баллы
             for (const result of appState.results) {
                 if (result.isCorrect) {
                     totalPoints += result.points;
                 }
             }
             
+            // Определяем оценку
             let grade, gradeText;
             if (totalPoints >= 14) {
                 grade = 5;
@@ -1730,6 +2806,7 @@
                 gradeText = "Нужно еще позаниматься. Попробуй еще раз!";
             }
             
+            // Строим таблицу результатов
             let resultsHtml = '';
             for (const result of appState.results) {
                 resultsHtml += `
@@ -1806,6 +2883,7 @@
             
             document.getElementById('result-card').innerHTML = html;
             
+            // Переключаемся на страницу результатов
             document.getElementById('main-page').style.display = 'none';
             document.getElementById('variants-page').style.display = 'none';
             document.getElementById('variant-info-page').style.display = 'none';
@@ -1813,6 +2891,13 @@
             document.getElementById('result-page').style.display = 'block';
             
             appState.currentPage = 'result';
+            
+            // Скрываем таймер
+            document.getElementById('timer-container').style.display = 'none';
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+            }
         }
 
         // ============================================
@@ -1828,295 +2913,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             showPage('main');
         });
-    
-        // ============================================
-        // ФУНКЦИИ ТАЙМЕРА (БЕЗ ЗВУКА)
-        // ============================================
-
-        // Переменная для интервала
-        let timerInterval = null;
-
-        function startTimer() {
-            console.log("Таймер запущен"); // Для отладки
-    
-            if (!appState.timer.enabled || appState.timer.minutes === 0) {
-                document.getElementById('timer-container').style.display = 'none';
-                return;
-            }
-    
-            // Загружаем сохраненное время
-            loadTimerState();
-    
-            // Показываем таймер
-            document.getElementById('timer-container').style.display = 'block';
-    
-            if (!appState.timer.isRunning && appState.timer.remaining > 0) {
-                appState.timer.isRunning = true;
-                appState.timer.startTime = Date.now() - ((appState.timer.minutes * 60 - appState.timer.remaining) * 1000);
-        
-            // Сохраняем в localStorage
-            saveTimerState();
-        
-            // Запускаем обновление каждую секунду
-            if (timerInterval) clearInterval(timerInterval);
-            timerInterval = setInterval(updateTimer, 1000);
-        
-            // Меняем иконку кнопки
-            const pauseBtn = document.getElementById('pause-btn');
-            if (pauseBtn) pauseBtn.innerHTML = '⏸️';
-            }
-        }    
-
-        function pauseTimer() {
-            if (!appState.timer.isRunning) {
-                // Возобновляем
-                appState.timer.isRunning = true;
-                if (appState.timer.pausedAt) {
-                // Корректируем startTime с учетом паузы
-                const pauseDuration = Date.now() - appState.timer.pausedAt;
-                appState.timer.startTime += pauseDuration;
-                appState.timer.pausedAt = null;
-                }
-        
-                document.getElementById('pause-btn').innerHTML = '⏸️';
-                timerInterval = setInterval(updateTimer, 1000);
-            } else {
-                // Пауза
-                appState.timer.isRunning = false;
-                appState.timer.pausedAt = Date.now();
-                clearInterval(timerInterval);
-        
-                document.getElementById('pause-btn').innerHTML = '▶️';
-            }
-    
-            saveTimerState();
-        }
-
-        function resetTimer() {
-            // Сбрасываем таймер на выбранное время
-            appState.timer.remaining = appState.timer.minutes * 60;
-            appState.timer.warningShown = false;
-            appState.timer.isRunning = false;
-            appState.timer.pausedAt = null;
-    
-            if (timerInterval) {
-                clearInterval(timerInterval);
-                timerInterval = null;
-            }
-    
-            updateTimerDisplay();
-    
-            const pauseBtn = document.getElementById('pause-btn');
-            if (pauseBtn) pauseBtn.innerHTML = '⏸️';
-    
-            const timerEl = document.getElementById('timer');
-            if (timerEl) {
-            timerEl.classList.remove('warning', 'expired');
-            }
-    
-            // Очищаем сохраненное состояние
-            localStorage.removeItem('vpr_timer_state');
-        }
-
-        function changeTimerTime(minutes) {
-            minutes = parseInt(minutes);
-            appState.timer.minutes = minutes;
-            appState.timer.enabled = minutes > 0;
-    
-            if (minutes === 0) {
-                // Без таймера
-                document.getElementById('timer-container').style.display = 'none';
-                appState.timer.isRunning = false;
-                if (timerInterval) {
-                    clearInterval(timerInterval);
-                    timerInterval = null;
-                }
-            } else {
-                // С новым временем
-                appState.timer.remaining = minutes * 60;
-                updateTimerDisplay();
-                appState.timer.isRunning = false;
-                appState.timer.pausedAt = null;
-        
-                const pauseBtn = document.getElementById('pause-btn');
-                if (pauseBtn) pauseBtn.innerHTML = '⏸️';
-        
-                const timerEl = document.getElementById('timer');
-                if (timerEl) {
-                timerEl.classList.remove('warning', 'expired');
-                }
-        
-                // Показываем таймер
-                document.getElementById('timer-container').style.display = 'block';
-            }
-    
-            saveTimerState();
-        }
-
-        function updateTimer() {
-            if (!appState.timer.isRunning) return;
-    
-            const now = Date.now();
-            const elapsed = Math.floor((now - appState.timer.startTime) / 1000);
-            appState.timer.remaining = Math.max(0, appState.timer.minutes * 60 - elapsed);
-    
-            updateTimerDisplay();
-    
-            // Предупреждение за 5 минут (только визуальное, без звука)
-            if (appState.timer.remaining <= 300 && appState.timer.remaining > 0 && !appState.timer.warningShown) {
-                appState.timer.warningShown = true;
-                const timerEl = document.getElementById('timer');
-                if (timerEl) timerEl.classList.add('warning');
-            }
-    
-            // Время вышло
-            if (appState.timer.remaining <= 0) {
-                appState.timer.remaining = 0;
-                appState.timer.isRunning = false;
-        
-                if (timerInterval) {
-                clearInterval(timerInterval);
-                timerInterval = null;
-                }
-        
-                const timerEl = document.getElementById('timer');
-                if (timerEl) {
-                    timerEl.classList.remove('warning');
-                    timerEl.classList.add('expired');
-                }
-        
-                updateTimerDisplay();
-        
-                // Автоматически завершаем вариант, если он сейчас выполняется
-                if (appState.currentPage === 'task') {
-                    // Даем небольшую задержку, чтобы пользователь увидел, что время вышло
-                    setTimeout(() => {
-                        if (confirm('⏰ Время вышло! Хочешь посмотреть результат?')) {
-                            finishVariant();
-                        }
-                    }, 500);
-                }
-            }
-    
-            saveTimerState();
-        }
-
-        function updateTimerDisplay() {
-            const minutes = Math.floor(appState.timer.remaining / 60);
-            const seconds = appState.timer.remaining % 60;
-            const display = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-    
-            const timerDisplay = document.getElementById('timer-display');
-            if (timerDisplay) timerDisplay.textContent = display;
-        }
-
-        function saveTimerState() {
-            try {
-                const state = {
-                    remaining: appState.timer.remaining,
-                    minutes: appState.timer.minutes,
-                    isRunning: appState.timer.isRunning,
-                    startTime: appState.timer.startTime,
-                    pausedAt: appState.timer.pausedAt,
-                    warningShown: appState.timer.warningShown,
-                    enabled: appState.timer.enabled
-                };
-                localStorage.setItem('vpr_timer_state', JSON.stringify(state));
-            } catch (e) {
-                console.log('Не удалось сохранить состояние таймера');
-            }
-        }
-
-        function loadTimerState() {
-            try {
-                const saved = localStorage.getItem('vpr_timer_state');
-                if (saved) {
-                    const state = JSON.parse(saved);
-                    appState.timer.remaining = state.remaining || appState.timer.minutes * 60;
-                    appState.timer.minutes = state.minutes || 45;
-                    appState.timer.isRunning = state.isRunning || false;
-                    appState.timer.startTime = state.startTime || null;
-                    appState.timer.pausedAt = state.pausedAt || null;
-                    appState.timer.warningShown = state.warningShown || false;
-                    appState.timer.enabled = state.enabled !== undefined ? state.enabled : true;
-            
-                    updateTimerDisplay();
-            
-                    // Восстанавливаем классы предупреждения
-                    const timerEl = document.getElementById('timer');
-                    if (timerEl) {
-                        if (appState.timer.warningShown && appState.timer.remaining > 0) {
-                            timerEl.classList.add('warning');
-                        }
-                        if (appState.timer.remaining <= 0) {
-                            timerEl.classList.add('expired');
-                        }
-                    }
-            
-                    // Если таймер должен работать, запускаем его
-                    if (appState.timer.isRunning && appState.timer.remaining > 0) {
-                        if (timerInterval) clearInterval(timerInterval);
-                        timerInterval = setInterval(updateTimer, 1000);
-                        document.getElementById('pause-btn').innerHTML = '⏸️';
-                    } else {
-                        document.getElementById('pause-btn').innerHTML = '⏸️';
-                    }
-                }
-            } catch (e) {
-                console.log('Не удалось загрузить состояние таймера');
-            }
-        }
-
-        // Функция для сброса таймера при начале нового варианта
-        function resetTimerForNewVariant() {
-            // Сбрасываем на 45 минут (по умолчанию для ВПР)
-            appState.timer.minutes = 45;
-            appState.timer.remaining = 45 * 60;
-            appState.timer.isRunning = false;
-            appState.timer.warningShown = false;
-            appState.timer.pausedAt = null;
-            appState.timer.enabled = true;
-    
-            if (timerInterval) {
-                clearInterval(timerInterval);
-                timerInterval = null;
-            }
-    
-            updateTimerDisplay();
-    
-            const timerEl = document.getElementById('timer');
-            if (timerEl) {
-            timerEl.classList.remove('warning', 'expired');
-            }
-    
-            const pauseBtn = document.getElementById('pause-btn');
-            if (pauseBtn) pauseBtn.innerHTML = '⏸️';
-    
-            // Обновляем выпадающий список
-            const select = document.getElementById('timer-select');
-            if (select) select.value = '45';
-    
-            // Очищаем сохраненное состояние
-            localStorage.removeItem('vpr_timer_state');
-        }
-
-        // Обновляем функцию startVariant, чтобы таймер сбрасывался
-        function startVariant() {
-            appState.currentTaskIndex = 0;
-            appState.userAnswers = {};
-            appState.userSolutions = {};
-            appState.drawings = {};
-            appState.results = [];
-    
-            // Сбрасываем таймер
-            resetTimerForNewVariant();
-  
-            renderTask();
-    
-            // Показываем таймер и запускаем
-            document.getElementById('timer-container').style.display = 'block';
-            startTimer();
-        }
     </script>
 </body>
 </html>
